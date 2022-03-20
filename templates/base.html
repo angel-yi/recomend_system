@@ -1,167 +1,176 @@
-
 {% extends "bootstrap/base.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     {% block head %}
-    <meta charset="UTF-8">
-    <title>Angel-文学网</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="/static/bootstrap.min.css"/>
-    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?e4b854cd3c899688b4bfee2db7f49d6f";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-    </script>
+        <meta charset="UTF-8">
+        <title>Angel-文学网</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="/static/bootstrap.min.css"/>
+        <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?e4b854cd3c899688b4bfee2db7f49d6f";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        <script>
+            (function () {
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                } else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
     {% endblock %}
 </head>
 <body>
 {% block content %}
-<nav class="navbar-collapse collapse" style="text-align: center; height: 40rem; width: 100%; background-color: #bee5f9;padding-top: 0rem;border: 0rem; color: #f8f8f8">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/index">Angel-文学网</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5" style="color: #f8f8f8">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/index">首页</a></li>
-                <li><a href="/fenlei/中国文学">中国文学</a></li>
-                <li><a href="/fenlei/互联网">互联网</a></li>
-                <li><a href="/fenlei/励志">励志</a></li>
-                <li><a href="/fenlei/历史地理">历史地理</a></li>
-                <li><a href="/fenlei/政治与法律">政治与法律</a></li>
-                <li class="dropdown" style="color: #f8f8f8">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多分类<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/fenlei/经济">经济</a></li>
-                        <li><a href="/fenlei/艺术">艺术</a></li>
-                        <li><a href="/fenlei/政治学">政治学</a></li>
-                        <li><a href="/fenlei/社会科学总论">社会科学总论</a></li>
-                        <!--            <li><a href="/fenlei/修真小说">修真小说</a></li>-->
-                        <!--            <li><a href="/fenlei/都市小说">都市小说</a></li>-->
-                        <!--            <li><a href="/fenlei/网游小说">网游小说</a></li>-->
-                        <!--            <li><a href="/fenlei/恐怖小说">修真小说</a></li>-->
-                        <!--            <li><a href="/fenlei/历史小说">都市小说</a></li>-->
-                        <!--            <li><a href="/fenlei/玄幻小说">网游小说</a></li>-->
-                        <!--            <li><a href="/fenlei/科幻小说">科幻小说</a></li>-->
-                        <!--            <li><a href="/fenlei/其他小说">其他小说</a></li>-->
-                    </ul>
-                </li>
-            </ul>
-            <form action="/sousuo" method="post" class="navbar-form navbar-left" style="padding-left: 10rem;">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="gjc" placeholder="搜索书籍" style="border-radius:20px">
-                </div>
-                <button type="submit" class="btn btn-default" style="border-radius:20px">搜索</button>
-            </form>
+    <nav class="navbar-collapse collapse"
+         style="text-align: center; height: 40rem; width: 100%; background-color: #bee5f9;padding-top: 0rem;border: 0rem; color: #f8f8f8">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/index">Angel-文学网</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5" style="color: #f8f8f8">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/index">首页</a></li>
+                    <li><a href="/fenlei/中国文学">中国文学</a></li>
+                    <li><a href="/fenlei/互联网">互联网</a></li>
+                    <li><a href="/fenlei/励志">励志</a></li>
+                    <li><a href="/fenlei/历史地理">历史地理</a></li>
+                    <li><a href="/fenlei/政治与法律">政治与法律</a></li>
+                    <li class="dropdown" style="color: #f8f8f8">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">更多分类<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/fenlei/经济">经济</a></li>
+                            <li><a href="/fenlei/艺术">艺术</a></li>
+                            <li><a href="/fenlei/政治学">政治学</a></li>
+                            <li><a href="/fenlei/社会科学总论">社会科学总论</a></li>
+                            <!--            <li><a href="/fenlei/修真小说">修真小说</a></li>-->
+                            <!--            <li><a href="/fenlei/都市小说">都市小说</a></li>-->
+                            <!--            <li><a href="/fenlei/网游小说">网游小说</a></li>-->
+                            <!--            <li><a href="/fenlei/恐怖小说">修真小说</a></li>-->
+                            <!--            <li><a href="/fenlei/历史小说">都市小说</a></li>-->
+                            <!--            <li><a href="/fenlei/玄幻小说">网游小说</a></li>-->
+                            <!--            <li><a href="/fenlei/科幻小说">科幻小说</a></li>-->
+                            <!--            <li><a href="/fenlei/其他小说">其他小说</a></li>-->
+                        </ul>
+                    </li>
+                </ul>
+                <form action="/sousuo" method="post" class="navbar-form navbar-left" style="padding-left: 10rem;">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="gjc" placeholder="搜索书籍"
+                               style="border-radius:20px">
+                    </div>
+                    <button type="submit" class="btn btn-default" style="border-radius:20px">搜索</button>
+                </form>
 
-            <ul class="nav navbar-nav navbar-right" >
-                {% if session.get('username') %}
-                <li style="padding-right: 20px;">
-                    <a class="" data-toggle="modal" data-target="#myModal_edit"
-                       data-whatever="">⭕公告</a>
-                    <div class="modal fade" id="myModal_edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel" style="color: #DAC804">Angel-文学网  公告系统
-                                    </h4>
-                                </div>
-                                {% for i in publicity %}
-                                <div class="modal-body">
-                                    <h3 style="color: black">{{ i['title'] }}</h3>
-                                    <span style="color: black">管理员{{ i['administrator_name'] }}编辑</span>
-                                    <span style="color: black">{{ i['date'] }}</span>
-                                    <h5 style="color: #000000; text-align: left; line-height: 25px;text-indent: 2em;">{{ i['content'] }}</h5>
-                                </div>
-                                {% endfor %}
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">已查看</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a>Hello {{ session.get('username') }}</a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/userinfo">个人中心</a></li>
-                        <li><a href="/xiugaixinxi">修改密码</a></li>
-                        <li><a href="/xiugaixinxi">修改昵称</a></li>
-                        <li><a href="/tuichu">退出登录</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="/myhistory">我的记录</a></li>
-                        <li><a href="/mycollection">我的收藏</a></li>
-                    </ul>
-                </li>
-                {% else %}
-                <li>
-                    <a class="" data-toggle="modal" data-target="#myModal_edit"
-                       data-whatever="">⭕公告</a>
-                    <div class="modal fade" id="myModal_edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel" style="color: #DAC804">Angel-文学网  公告系统
-                                    </h4>
-                                </div>
-                                {% for i in publicity %}
-                                <div class="modal-body">
-                                    <h3 style="color: black">{{ i['title'] }}</h3>
-                                    <span style="color: black">管理员{{ i['administrator_name'] }}编辑</span>
-                                    <span style="color: black">{{ i['date'] }}</span>
-                                    <h5 style="color: #000000; text-align: left; line-height: 25px;text-indent: 2em;">{{ i['content'] }}</h5>
-                                </div>
-                                {% endfor %}
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">已查看</button>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if session.get('username') %}
+                        <li style="padding-right: 20px;">
+                            <a class="" data-toggle="modal" data-target="#myModal_edit"
+                               data-whatever="">⭕公告</a>
+                            <div class="modal fade" id="myModal_edit" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel" style="color: #DAC804">Angel-文学网
+                                                公告系统
+                                            </h4>
+                                        </div>
+                                        {% for i in publicity %}
+                                            <div class="modal-body">
+                                                <h3 style="color: black">{{ i['title'] }}</h3>
+                                                <span style="color: black">管理员{{ i['administrator_name'] }}编辑</span>
+                                                <span style="color: black">{{ i['date'] }}</span>
+                                                <h5 style="color: #000000; text-align: left; line-height: 25px;text-indent: 2em;">{{ i['content'] }}</h5>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">已查看
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="/reg">注册</a>
-                </li>
-                <li>
-                    <a href="/login">登录</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+                        </li>
+                        <li>
+                            <a>Hello {{ session.get('username') }}</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">个人中心 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/userinfo">个人中心</a></li>
+                                <li><a href="/xiugaixinxi">修改密码</a></li>
+                                <li><a href="/xiugaixinxi">修改昵称</a></li>
+                                <li><a href="/tuichu">退出登录</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/myhistory">我的记录</a></li>
+                                <li><a href="/mycollection">我的收藏</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a class="" data-toggle="modal" data-target="#myModal_edit"
+                               data-whatever="">⭕公告</a>
+                            <div class="modal fade" id="myModal_edit" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel" style="color: #DAC804">Angel-文学网
+                                                公告系统
+                                            </h4>
+                                        </div>
+                                        {% for i in publicity %}
+                                            <div class="modal-body">
+                                                <h3 style="color: black">{{ i['title'] }}</h3>
+                                                <span style="color: black">管理员{{ i['administrator_name'] }}编辑</span>
+                                                <span style="color: black">{{ i['date'] }}</span>
+                                                <h5 style="color: #000000; text-align: left; line-height: 25px;text-indent: 2em;">{{ i['content'] }}</h5>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">已查看
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/reg">注册</a>
+                        </li>
+                        <li>
+                            <a href="/login">登录</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
 
 {% endblock %}
 </body>

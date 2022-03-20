@@ -8,16 +8,16 @@
 
     {{ super() }}
     <!-- 网站图标，图片在static/images文件夹下 -->
-<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"
-    type="image/x-icon">
-<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}"
-    type="image/x-icon">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"
+          type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}"
+          type="image/x-icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 {% endblock %}
 
 {% block scripts %}
-{{ super() }}
-{{ moment.include_moment() }}
+    {{ super() }}
+    {{ moment.include_moment() }}
 {% endblock %}
 
 
@@ -28,6 +28,6 @@
 <!-- 继承其他页面内容 -->
 {% block content %}
     <title>Angel-文学网</title>
-{{ super() }}
+    {{ super() }}
 {% endblock %}
 

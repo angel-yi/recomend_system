@@ -1,10 +1,11 @@
-function isIE() { 
-	//indexOf() 若找到, 返回大于0; 若没有找到,则返回 -1 。
+function isIE() {
+    //indexOf() 若找到, 返回大于0; 若没有找到,则返回 -1 。
     if (window.navigator.userAgent.toString().toLowerCase().indexOf("msie") >= 1)
         return true;
     else
         return false;
 }
+
 //firefox innerText define
 //if (!isIE()) {   
 //	HTMLElement.prototype.__defineGetter__( "innerText",
@@ -34,20 +35,20 @@ var currentClientHeight = 0;
 var currentClientWidth = 0;
 
 function onLoadLine(tbodyId, startIndex, len, cssName) {
- 
+
     if (currentClientHeight == document.documentElement.clientHeight
         && currentClientWidth == document.documentElement.clientWidth) {
-　　　　return;
-　　}
-　　currentClientHeight = document.documentElement.clientHeight;
+        return;
+    }
+    currentClientHeight = document.documentElement.clientHeight;
     currentClientWidth = document.documentElement.clientWidth;
 
-    oZXZ.clear();    
+    oZXZ.clear();
     //分析参数
-    var indexParam = getArrayFormString(startIndex);     
+    var indexParam = getArrayFormString(startIndex);
     var lenParam = getArrayFormString(len);
     var cssParam = getCssArrayFormString(cssName);
-    
+
     //加载线
     objectZXZ = oZXZ.bind(tbodyId, cssParam);
     for (var i = 0; i < indexParam.length; i++) {
@@ -67,11 +68,11 @@ function getArrayFormString(param) {
     if (param != "" && param != undefined) {
         //有线的情况
         if (param.indexOf(",") > 0) {
-             //有多条线的情况
-             returnArray = param.split(",");
+            //有多条线的情况
+            returnArray = param.split(",");
         } else {
-             //只有一条线的情况
-             returnArray[0] = param;
+            //只有一条线的情况
+            returnArray[0] = param;
         }
     }
     return returnArray;
@@ -85,11 +86,11 @@ function getCssArrayFormString(param) {
     if (param != "" && param != undefined) {
         //有线的情况
         if (param.indexOf(",") > 0) {
-             //有多条线的情况
-             cssParamTemp = param.split(",");
+            //有多条线的情况
+            cssParamTemp = param.split(",");
         } else {
-         //只有一条线的情况
-         cssParamTemp[0] = param;
+            //只有一条线的情况
+            cssParamTemp[0] = param;
         }
     }
     countIndex = 0;

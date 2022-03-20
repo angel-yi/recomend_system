@@ -3,154 +3,171 @@
 
 {% block content %}
     {{ super() }}
-<body style="background-image: url('/static/images/4a926626b6b0618ea0636b1c782d6283.png')">
+    <body style="background-image: url('/static/images/4a926626b6b0618ea0636b1c782d6283.png')">
 
-<div class="container">
-    <div style="text-align: center; color: #f8f8f8;  font-size: 14px;width: 800px; margin-top: 25px;
+    <div class="container">
+        <div style="text-align: center; color: #f8f8f8;  font-size: 14px;width: 800px; margin-top: 25px;
         background-color: slategrey; border-radius:20px;" class="container">
+            <hr>
+            <p style="font-size: 18px; color: #f8f8f8">
+                <a href="/create_book" style="color: #f8f8f8; padding-left: 20px;">|新建图书|</a>
+                {#            <a href="/edit_book"style="color: #f8f8f8; padding-left: 20px;">|编辑文章|</a>#}
+                <a href="/my_book" style="color: #f8f8f8; padding-left: 20px;">|我的作品|</a>
+                <a href="/my_fans" style="color: #f8f8f8; padding-left: 20px;">|我的粉丝|</a>
+                <a href="/userinfo" style="color: #f8f8f8; padding-left: 20px;">|我的主页|</a>
+                <a href="/xiugaixinxi" style="color: #f8f8f8; padding-left: 20px;">|修改信息|</a>
+            </p>
+            <hr>
+        </div>
         <hr>
-        <p style="font-size: 18px; color: #f8f8f8">
-            <a href="/create_book"style="color: #f8f8f8; padding-left: 20px;">|新建图书|</a>
-{#            <a href="/edit_book"style="color: #f8f8f8; padding-left: 20px;">|编辑文章|</a>#}
-            <a href="/my_book"style="color: #f8f8f8; padding-left: 20px;">|我的作品|</a>
-            <a href="/my_fans"style="color: #f8f8f8; padding-left: 20px;">|我的粉丝|</a>
-            <a href="/userinfo" style="color: #f8f8f8; padding-left: 20px;">|我的主页|</a>
-            <a href="/xiugaixinxi" style="color: #f8f8f8; padding-left: 20px;">|修改信息|</a>
-        </p>
-        <hr>
-    </div>
-    <hr>
-    <div style="width: 1000px; background-color: #bee5f9; text-align: center; border-radius: 20px;"
-         class="container">
-        <table border="0px;" style="text-align: center; border-color: #444444; text-align: center; margin-top: 20px;">
-        <thead>
-            <tr style="margin-top: 10px;text-align: center">
-                <th style="width: 190px;">
-                    图片
-                </th>
-                <th style="width: 50%">
-                    书名/介绍
-                </th>
-                <th style="width: 8%">
-                    分类
-                </th>
-                <th style="width: 8%">
-                    浏览量
-                </th>
-                <th style="width: 8%">
-                    点赞量
-                </th>
-                <th style="width: 8%">
-                    收藏量
-                </th>
-                <th style="width: 8%">
-                    评论量
-                </th>
-                <th style="width: 20%">
-                    操作
-                </th>
-            </tr>
-        </thead>
-        <tbody>
+        <div style="width: 1000px; background-color: #bee5f9; text-align: center; border-radius: 20px;"
+             class="container">
+            <table border="0px;"
+                   style="text-align: center; border-color: #444444; text-align: center; margin-top: 20px;">
+                <thead>
+                <tr style="margin-top: 10px;text-align: center">
+                    <th style="width: 190px;">
+                        图片
+                    </th>
+                    <th style="width: 50%">
+                        书名/介绍
+                    </th>
+                    <th style="width: 8%">
+                        分类
+                    </th>
+                    <th style="width: 8%">
+                        浏览量
+                    </th>
+                    <th style="width: 8%">
+                        点赞量
+                    </th>
+                    <th style="width: 8%">
+                        收藏量
+                    </th>
+                    <th style="width: 8%">
+                        评论量
+                    </th>
+                    <th style="width: 20%">
+                        操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
 
-            {% for i in data %}
-            <tr style="margin: 20px; padding: 200px; height: 200px;">
-                <th width="190px;" height="180px;">
-                    <a href="/xiangqing/{{ i.id }}">
-                        <img src="{{ i['book_img'] }}" width="130px;"height="170px;" style="border-radius: 20px;">
-                    </a>
-                </th>
-                <th style="padding-left: 15px;width: 60%">
-                    <a href="/xiangqing/{{ i.id }}" style="font-size: 18px; color: #8a6d3b;text-align: left; ">
-                        {{ i['book_name'] }}
-                    </a>
-                    <br>
-                    <br>
-                    <p style="font-size: 12px; text-align: center">
-                        {{ i['book_abstract'][0:150] }}
-                    </p>
-                </th>
-                <th>
-                    <a href="/fenlei/{{ i['book_class'] }}">
-                        <input class="btn-danger" type="text" readonly value="{{ i['book_class'] }}"
-                           style="width: 70px; height: 30px; font-family: KaiTi; border-radius:20px; text-align: center;">
-                    </a>
-                </th>
-                <th>
-                    {{ i['book_history'] }}
-                </th>
-                <th>
-                    {{ i['book_like'] }}
-                </th>
-                <th>
-                    {{ i['book_collection'] }}
-                </th>
-                <th>
-                    {{ i['book_comment'] }}
-                </th>
-                <th>
-                    <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_edit{{ i['id'] }}"
-                            data-whatever="{{ i['id'] }}">编辑文章</button>
-                    <div class="modal fade" id="myModal_edit{{ i['id'] }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span></button>
-                              <h4 class="modal-title" id="myModalLabel">编辑文章&nbsp;&nbsp;<span style="color: #DAC804; font-size: 18px;">{{ i['book_name'] }}</span></h4>
-                          </div>
-                            <form method="post" action="/edit_my_book">
-                              <div class="modal-body">
-                                  <input type="hidden" name="book_name" value="{{ i['book_name'] }}">
-                                  <input type="hidden" name="book_id" value="{{ i['id'] }}">
-                                  <label style="font-size: 18px;">标题</label><input type="text" name="book_title" style="width: 450px; margin-left: 20px" placeholder="请输入本章标题"><hr>
-                                  <textarea type="text" rows="21" cols="60" name="book_content" required placeholder="输入本书描述信息，文本框大小可变，可在右下角拖动调节
+                {% for i in data %}
+                    <tr style="margin: 20px; padding: 200px; height: 200px;">
+                        <th width="190px;" height="180px;">
+                            <a href="/xiangqing/{{ i.id }}">
+                                <img src="{{ i['book_img'] }}" width="130px;" height="170px;"
+                                     style="border-radius: 20px;">
+                            </a>
+                        </th>
+                        <th style="padding-left: 15px;width: 60%">
+                            <a href="/xiangqing/{{ i.id }}" style="font-size: 18px; color: #8a6d3b;text-align: left; ">
+                                {{ i['book_name'] }}
+                            </a>
+                            <br>
+                            <br>
+                            <p style="font-size: 12px; text-align: center">
+                                {{ i['book_abstract'][0:150] }}
+                            </p>
+                        </th>
+                        <th>
+                            <a href="/fenlei/{{ i['book_class'] }}">
+                                <input class="btn-danger" type="text" readonly value="{{ i['book_class'] }}"
+                                       style="width: 70px; height: 30px; font-family: KaiTi; border-radius:20px; text-align: center;">
+                            </a>
+                        </th>
+                        <th>
+                            {{ i['book_history'] }}
+                        </th>
+                        <th>
+                            {{ i['book_like'] }}
+                        </th>
+                        <th>
+                            {{ i['book_collection'] }}
+                        </th>
+                        <th>
+                            {{ i['book_comment'] }}
+                        </th>
+                        <th>
+                            <button type="button" class="btn btn-info" data-toggle="modal"
+                                    data-target="#myModal_edit{{ i['id'] }}"
+                                    data-whatever="{{ i['id'] }}">编辑文章
+                            </button>
+                            <div class="modal fade" id="myModal_edit{{ i['id'] }}" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">编辑文章&nbsp;&nbsp;<span
+                                                    style="color: #DAC804; font-size: 18px;">{{ i['book_name'] }}</span>
+                                            </h4>
+                                        </div>
+                                        <form method="post" action="/edit_my_book">
+                                            <div class="modal-body">
+                                                <input type="hidden" name="book_name" value="{{ i['book_name'] }}">
+                                                <input type="hidden" name="book_id" value="{{ i['id'] }}">
+                                                <label style="font-size: 18px;">标题</label><input type="text"
+                                                                                                 name="book_title"
+                                                                                                 style="width: 450px; margin-left: 20px"
+                                                                                                 placeholder="请输入本章标题">
+                                                <hr>
+                                                <textarea type="text" rows="21" cols="60" name="book_content" required
+                                                          placeholder="输入本书描述信息，文本框大小可变，可在右下角拖动调节
 目前作者系统不太完善，只支持文字形式"></textarea>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                <button type="submit" class="btn btn-primary">确认</button>
-                              </div>
-                            </form>
-                        </div>
-                      </div>
-                    </div>
-                    <br><br>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                                </button>
+                                                <button type="submit" class="btn btn-primary">确认</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
 
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal{{ i['id'] }}"
-                            data-whatever="{{ i['id'] }}">删除本书</button>
+                            <button type="button" class="btn btn-danger" data-toggle="modal"
+                                    data-target="#myModal{{ i['id'] }}"
+                                    data-whatever="{{ i['id'] }}">删除本书
+                            </button>
 
-                    <div class="modal fade" id="myModal{{ i['id'] }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span></button>
-                              <h4 class="modal-title" id="myModalLabel">确认删除</h4>
-                          </div>
-                            <form method="post" action="/delete_my_book">
-                              <div class="modal-body">
-                                  <input type="hidden" name="book_id" value="{{ i['id'] }}">
-                                  <p style="color: #DAC804; font-size: 18px;">{{ i['book_name'] }}</p>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                <button type="submit" class="btn btn-primary">确认</button>
-                              </div>
-                            </form>
-                        </div>
-                      </div>
-                    </div>
-                </th>
-            </tr>
-            {% endfor %}
-        </tbody>
+                            <div class="modal fade" id="myModal{{ i['id'] }}" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">确认删除</h4>
+                                        </div>
+                                        <form method="post" action="/delete_my_book">
+                                            <div class="modal-body">
+                                                <input type="hidden" name="book_id" value="{{ i['id'] }}">
+                                                <p style="color: #DAC804; font-size: 18px;">{{ i['book_name'] }}</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                                </button>
+                                                <button type="submit" class="btn btn-primary">确认</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                {% endfor %}
+                </tbody>
 
-    </table>
+            </table>
+        </div>
     </div>
-</div>
 
-{#删除模态框#}
+    {#删除模态框#}
 
 
 {% endblock %}

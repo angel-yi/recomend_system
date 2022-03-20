@@ -1,60 +1,64 @@
-
-
 <html>
 <head>
     <title>Angel-文学网-登录</title>
     <link rel="stylesheet" href="/static/bootstrap.min.css"/>
     <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="baidu-site-verification" content="MJaaPujZms" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="baidu-site-verification" content="MJaaPujZms"/>
     <script>
         var _hmt = _hmt || [];
-        (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?e4b854cd3c899688b4bfee2db7f49d6f";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e4b854cd3c899688b4bfee2db7f49d6f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
         })();
     </script>
     <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            } else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
 </head>
 
 <body style="background-image: url('/static/images/5f7be1393c54b2920ce2677e08524d8e.jpg')">
 
-<div class="container" style=" text-align: center; background-color: #CCCCFF; width: 500px; height: 350px;margin-top: 200px; opacity: 90%; border-radius:20px;" >
-<form method="post" action="/login" class="form" style="padding-top: 30px">
-  <label style="font-size: 28px; color: #CCFFFF;">欢迎登录Angel文学</label>
-    <label style="font-size: 20px; color: #FFFF99;">专业的书籍导航</label><hr>
-  <label>&nbsp;</label><br>
-  <label style="font-size: 16px; color: #0000FF;font-family: STHeiti">账号&nbsp;&nbsp;</label>
-  <input type="text" name="account" style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;" required placeholder="输入您的账号"><br>
-  <label>&nbsp;</label><br>
-  <label style="font-size: 16px; color: #0000FF; font-family: STHeiti">密码&nbsp;&nbsp;</label>
-  <input type="password" name="pwd" style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;" required placeholder="输入您的密码"><br>
-  <label style="padding-top: 5px;">&nbsp;
-      {% for message in get_flashed_messages() %}
-        {{ message }}
-  {% endfor %}
-  </label><br><hr>
-    <label style="font-family: KaiTi; color: #985f0d; font-size: 15px; ">没有账号请&nbsp;</label>
-  <label style="font-size: 16px; color: #FF3300; padding-right: 50px; "><a href="/reg">注册</a></label>
-  <input type="submit" value="登录" style="width: 100px; text-align: center;" class="btn btn-primary">
+<div class="container"
+     style=" text-align: center; background-color: #CCCCFF; width: 500px; height: 350px;margin-top: 200px; opacity: 90%; border-radius:20px;">
+    <form method="post" action="/login" class="form" style="padding-top: 30px">
+        <label style="font-size: 28px; color: #CCFFFF;">欢迎登录Angel文学</label>
+        <label style="font-size: 20px; color: #FFFF99;">专业的书籍导航</label>
+        <hr>
+        <label>&nbsp;</label><br>
+        <label style="font-size: 16px; color: #0000FF;font-family: STHeiti">账号&nbsp;&nbsp;</label>
+        <input type="text" name="account"
+               style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;" required
+               placeholder="输入您的账号"><br>
+        <label>&nbsp;</label><br>
+        <label style="font-size: 16px; color: #0000FF; font-family: STHeiti">密码&nbsp;&nbsp;</label>
+        <input type="password" name="pwd"
+               style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;" required
+               placeholder="输入您的密码"><br>
+        <label style="padding-top: 5px;">&nbsp;
+            {% for message in get_flashed_messages() %}
+                {{ message }}
+            {% endfor %}
+        </label><br>
+        <hr>
+        <label style="font-family: KaiTi; color: #985f0d; font-size: 15px; ">没有账号请&nbsp;</label>
+        <label style="font-size: 16px; color: #FF3300; padding-right: 50px; "><a href="/reg">注册</a></label>
+        <input type="submit" value="登录" style="width: 100px; text-align: center;" class="btn btn-primary">
 
-</form>
+    </form>
 </div>
 
 </body>

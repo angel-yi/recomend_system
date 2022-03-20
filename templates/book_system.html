@@ -1,93 +1,132 @@
 {% extends "back_base.html" %}
 
 {% block content %}
-{{ super() }}
-<div class="row">
-    <div class="col-md-3" style="width: 20%; height: 600px; margin-top: 10px;
+    {{ super() }}
+    <div class="row">
+        <div class="col-md-3" style="width: 20%; height: 600px; margin-top: 10px;
             text-align: center; border-radius: 20px; margin-left: 30px; color: black">
-        <a href="/background/management/system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #bee5f9; border-radius: 20px; font-size: 20px; color: black">快捷菜单 ⬇⬇⬇</div></a>
-        <a href="/class_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #DAC804; border-radius: 20px; font-size: 20px; color: black">分类管理</div></a>
-        <a href="/background_author_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #00aabb; border-radius: 20px; font-size: 20px; color: black">作者管理</div></a>
-        <a href="/book_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #8c8c8c; border-radius: 20px; font-size: 20px; color: black">书籍管理</div></a>
-        <a href="/member_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #c1e2b3; border-radius: 20px; font-size: 20px; color: black">会员管理</div></a>
-        <a href="/publicity_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #ce8483; border-radius: 20px; font-size: 20px; color: black">公告管理</div></a>
-        <a href="/data_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #f1ddb8; border-radius: 20px; font-size: 20px; color: black">网站数据</div></a>
-    </div>
-    <div class="col-md-7" style="width: 76%; height: 640px;background-color: #c9e2b3; margin-top: 10px;
+            <a href="/background/management/system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #bee5f9; border-radius: 20px; font-size: 20px; color: black">
+                    快捷菜单 ⬇⬇⬇
+                </div>
+            </a>
+            <a href="/class_system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #DAC804; border-radius: 20px; font-size: 20px; color: black">
+                    分类管理
+                </div>
+            </a>
+            <a href="/background_author_system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #00aabb; border-radius: 20px; font-size: 20px; color: black">
+                    作者管理
+                </div>
+            </a>
+            <a href="/book_system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #8c8c8c; border-radius: 20px; font-size: 20px; color: black">
+                    书籍管理
+                </div>
+            </a>
+            <a href="/member_system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #c1e2b3; border-radius: 20px; font-size: 20px; color: black">
+                    会员管理
+                </div>
+            </a>
+            <a href="/publicity_system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #ce8483; border-radius: 20px; font-size: 20px; color: black">
+                    公告管理
+                </div>
+            </a>
+            <a href="/data_system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #f1ddb8; border-radius: 20px; font-size: 20px; color: black">
+                    网站数据
+                </div>
+            </a>
+        </div>
+        <div class="col-md-7" style="width: 76%; height: 640px;background-color: #c9e2b3; margin-top: 10px;
             text-align: center; border-radius: 20px; margin-left: 0px;">
-        <div style="padding-top: 20px;">
-            <p style="font-size: 36px;">
-                图书管理
-            </p>
-            <hr>
-            <table class="table table-hover" style="">
-                {% for i in book_class %}
-                <tr>
-                    <td style="text-align: center; padding-top: 3%">{{ i.id }}</td>
-                    <td style="text-align: center; width: 20%; padding-top: 3%">{{ i.book_name }}</td>
-                    <td style="text-align: left; padding-top: 3%; width: 8%">{{ i.book_author }}</td>
-                    <td style="text-align: left; width: 35%">{{ i.book_abstract[0:80] }}</td>
-                    <td style="text-align: left; padding-top: 3%">{{ i.book_class }}</td>
-                    <td style="text-align: left"><img src="{{ i.book_img }}" height="70px" width="50px"></td>
-                    <!--                            <td style="text-align: left; width: 3%; padding-top: 3%">{{ i.book_link }}</td>-->
-                    <td style="text-align: left; width: 10%; padding-top: 3%">
-                        <button  type="button" data-toggle="modal" data-target="#myModal_edit{{ i.id }}"
-                                 data-whatever="{{ i['book_class'] }}">编辑</button>
-                        <div class="modal fade" id="myModal_edit{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">编辑图书信息&nbsp;&nbsp;<span style="color: #DAC804; font-size: 18px;">{{ i.book_name }}</span></h4>
+            <div style="padding-top: 20px;">
+                <p style="font-size: 36px;">
+                    图书管理
+                </p>
+                <hr>
+                <table class="table table-hover" style="">
+                    {% for i in book_class %}
+                        <tr>
+                            <td style="text-align: center; padding-top: 3%">{{ i.id }}</td>
+                            <td style="text-align: center; width: 20%; padding-top: 3%">{{ i.book_name }}</td>
+                            <td style="text-align: left; padding-top: 3%; width: 8%">{{ i.book_author }}</td>
+                            <td style="text-align: left; width: 35%">{{ i.book_abstract[0:80] }}</td>
+                            <td style="text-align: left; padding-top: 3%">{{ i.book_class }}</td>
+                            <td style="text-align: left"><img src="{{ i.book_img }}" height="70px" width="50px"></td>
+                            <!--                            <td style="text-align: left; width: 3%; padding-top: 3%">{{ i.book_link }}</td>-->
+                            <td style="text-align: left; width: 10%; padding-top: 3%">
+                                <button type="button" data-toggle="modal" data-target="#myModal_edit{{ i.id }}"
+                                        data-whatever="{{ i['book_class'] }}">编辑
+                                </button>
+                                <div class="modal fade" id="myModal_edit{{ i.id }}" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">编辑图书信息&nbsp;&nbsp;<span
+                                                        style="color: #DAC804; font-size: 18px;">{{ i.book_name }}</span>
+                                                </h4>
+                                            </div>
+                                            <form method="post" action="/edit_class">
+                                                <div class="modal-body">
+                                                    <label>图书名称
+                                                        <input type="text" name="new_book_class"
+                                                               value="{{ i.book_name }}" style="width: 400px">
+                                                    </label><br><br>
+                                                    <label>图书作者
+                                                        <input type="text" name="new_book_class"
+                                                               value="{{ i.book_author }}" style="width: 400px">
+                                                    </label><br><br>
+                                                    <label>图书摘要
+                                                        <textarea rows="8" type="text" name="new_book_class"
+                                                                  style="width: 400px">{{ i.book_abstract }}</textarea>
+                                                    </label><br><br>
+                                                    <label>图书分类
+                                                        <input type="text" name="new_book_class"
+                                                               value="{{ i.book_class }}" style="width: 400px">
+                                                    </label><br><br>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                        取消
+                                                    </button>
+                                                    <button type="submit" class="btn btn-primary">确认</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <form method="post" action="/edit_class">
-                                        <div class="modal-body">
-                                            <label>图书名称
-                                                <input type="text" name="new_book_class" value="{{ i.book_name }}" style="width: 400px">
-                                            </label><br><br>
-                                            <label>图书作者
-                                                <input type="text" name="new_book_class" value="{{ i.book_author }}" style="width: 400px">
-                                            </label><br><br>
-                                            <label>图书摘要
-                                                <textarea rows="8" type="text" name="new_book_class" style="width: 400px">{{ i.book_abstract }}</textarea>
-                                            </label><br><br>
-                                            <label>图书分类
-                                                <input type="text" name="new_book_class" value="{{ i.book_class }}" style="width: 400px">
-                                            </label><br><br>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                            <button type="submit" class="btn btn-primary">确认</button>
-                                        </div>
-                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                        <button>删除</button>
-                    </td>
-                </tr>
-                {% endfor %}
-            </table>
+                                <button>删除</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
 
-        </div>
-        <div style="text-align: center; padding-top: 20px; color:#FF0000; padding-bottom: 40px;" >
-            {% if page==1%}
-            <span style="font-size: 16px;"><a href="/book_system">首页</a></span>
-            <span style="font-size: 16px;">当前页：{{ page }}</span>
-            <span style="font-size: 16px;"><a href="/book_system/{{ page + 1 }}">下一页</a></span>
-            <span style="font-size: 16px;"><a href="/book_system/{{ page_num }}">尾页</a></span>
-            <span style="font-size: 16px;">总页数：{{ page_num + 1 }}</span>
-            {% else %}
-            <span style="font-size: 16px;"><a href="/book_system">首页</a></span>
-            <span style="font-size: 16px;">当前页：{{ page }}</span>
-            <span style="font-size: 16px;"><a href="/book_system/{{ page - 1 }}">上一页</a></span>
-            <span style="font-size: 16px;"><a href="/book_system/{{ page + 1 }}">下一页</a></span>
-            <span style="font-size: 16px;"><a href="/book_system/{{ page_num }}">尾页</a></span>
-            <span style="font-size: 16px;">总页数：{{ page_num + 1 }}</span>
-            {% endif %}
+            </div>
+            <div style="text-align: center; padding-top: 20px; color:#FF0000; padding-bottom: 40px;">
+                {% if page==1 %}
+                    <span style="font-size: 16px;"><a href="/book_system">首页</a></span>
+                    <span style="font-size: 16px;">当前页：{{ page }}</span>
+                    <span style="font-size: 16px;"><a href="/book_system/{{ page + 1 }}">下一页</a></span>
+                    <span style="font-size: 16px;"><a href="/book_system/{{ page_num }}">尾页</a></span>
+                    <span style="font-size: 16px;">总页数：{{ page_num + 1 }}</span>
+                {% else %}
+                    <span style="font-size: 16px;"><a href="/book_system">首页</a></span>
+                    <span style="font-size: 16px;">当前页：{{ page }}</span>
+                    <span style="font-size: 16px;"><a href="/book_system/{{ page - 1 }}">上一页</a></span>
+                    <span style="font-size: 16px;"><a href="/book_system/{{ page + 1 }}">下一页</a></span>
+                    <span style="font-size: 16px;"><a href="/book_system/{{ page_num }}">尾页</a></span>
+                    <span style="font-size: 16px;">总页数：{{ page_num + 1 }}</span>
+                {% endif %}
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}

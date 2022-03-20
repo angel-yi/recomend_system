@@ -1,15 +1,14 @@
 # coding:utf-8
 import csv
 import math
+import pymysql
 import threading
 import time
-from MiaoshuFenci import fenci
-import pymysql
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 
+from MiaoshuFenci import fenci
 from mysql_connect import SqlCx
-
 
 stop_word_path = 'hit_stopword.txt'
 stop_word_list = open(stop_word_path, 'r', encoding='utf-8').readlines()

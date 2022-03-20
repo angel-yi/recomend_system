@@ -2,63 +2,69 @@
 
 {% block content %}
     {{ super() }}
-<body style="background-image: url('/static/images/4a926626b6b0618ea0636b1c782d6283.png')">
+    <body style="background-image: url('/static/images/4a926626b6b0618ea0636b1c782d6283.png')">
 
-<div style="text-align: center; color: #f8f8f8;  font-size: 14px;width: 800px; background-color: slategrey; border-radius:20px;height: 630px; margin-top: 20px;" class="container">
-    <hr>
-    <p style="font-size: 18px; color: #f8f8f8">
-        <a href="/userinfo" style="color: #f8f8f8; padding-left: 20px;">|我的主页|</a>
-        <a href="/xiugaixinxi" style="color: #f8f8f8; padding-left: 20px;">|修改信息|</a>
-        <a href="/mycollection"style="color: #f8f8f8; padding-left: 20px;">|我的收藏|</a>
-{#        <a href="/mylike" style="color: #f8f8f8; padding-left: 20px;">|我喜欢的|</a>#}
-        <a href="/myhistory" style="color: #f8f8f8; padding-left: 20px;">|历史记录|</a>
-    </p>
-    <hr>
-{#    <div class="container" style=" text-align: center; background-color: #CCCCFF; width: 480px;margin-top: 80px; opacity: 90%; border-radius:20px;" >#}
-<form method="post" action="/xiugaixinxi" class="form" style="padding-top: 30px">
-{#  <label style="font-size: 28px; color: #CCFFFF;">欢迎登录Angel文学</label>#}
-{#    <label style="font-size: 20px; color: #FFFF99;">专业的书籍导航</label><hr>#}
-  <label style="font-size: 16px; color: #000000;font-family: STHeiti">账号&nbsp;&nbsp;</label>
-  <input type="text" name="account" style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;color: #1b6d85" readonly
-         required placeholder="{{ session.get('account') }}" value="{{ session.get('account') }}"><br>
-  <label>&nbsp;</label><br>
-<label style="font-size: 16px; color: #000000;font-family: STHeiti">昵称&nbsp;&nbsp;</label>
-  <input type="text" name="username" style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center; color: #1b6d85"
-          placeholder="{{ session.get('username') }}" value="{{ session.get('username') }}"><br>
-<label>&nbsp;</label><br>
-<label style="font-size: 16px; color: #000000;font-family: STHeiti">我喜欢</label>
-        <select style="color: #1b6d85; width: 250px; height: 35px; border-radius: 20px; text-align: center; align-content: center" name="select">
-            <option style="border-radius: 20px;">玄幻小说</option>
-            <option value="修真小说">修真小说</option>
-            <option value="都市小说">都市小说</option>
-            <option value="历史小说">历史小说</option>
-            <option value="网游小说">网游小说</option>
-            <option value="科幻小说">科幻小说</option>
-            <option value="恐怖小说">恐怖小说</option>
-            <option value="其他小说">其他小说</option>
-        </select>
-    <br>
+    <div style="text-align: center; color: #f8f8f8;  font-size: 14px;width: 800px; background-color: slategrey; border-radius:20px;height: 630px; margin-top: 20px;"
+         class="container">
+        <hr>
+        <p style="font-size: 18px; color: #f8f8f8">
+            <a href="/userinfo" style="color: #f8f8f8; padding-left: 20px;">|我的主页|</a>
+            <a href="/xiugaixinxi" style="color: #f8f8f8; padding-left: 20px;">|修改信息|</a>
+            <a href="/mycollection" style="color: #f8f8f8; padding-left: 20px;">|我的收藏|</a>
+            {#        <a href="/mylike" style="color: #f8f8f8; padding-left: 20px;">|我喜欢的|</a>#}
+            <a href="/myhistory" style="color: #f8f8f8; padding-left: 20px;">|历史记录|</a>
+        </p>
+        <hr>
+        {#    <div class="container" style=" text-align: center; background-color: #CCCCFF; width: 480px;margin-top: 80px; opacity: 90%; border-radius:20px;" >#}
+        <form method="post" action="/xiugaixinxi" class="form" style="padding-top: 30px">
+            {#  <label style="font-size: 28px; color: #CCFFFF;">欢迎登录Angel文学</label>#}
+            {#    <label style="font-size: 20px; color: #FFFF99;">专业的书籍导航</label><hr>#}
+            <label style="font-size: 16px; color: #000000;font-family: STHeiti">账号&nbsp;&nbsp;</label>
+            <input type="text" name="account"
+                   style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;color: #1b6d85"
+                   readonly
+                   required placeholder="{{ session.get('account') }}" value="{{ session.get('account') }}"><br>
+            <label>&nbsp;</label><br>
+            <label style="font-size: 16px; color: #000000;font-family: STHeiti">昵称&nbsp;&nbsp;</label>
+            <input type="text" name="username"
+                   style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center; color: #1b6d85"
+                   placeholder="{{ session.get('username') }}" value="{{ session.get('username') }}"><br>
+            <label>&nbsp;</label><br>
+            <label style="font-size: 16px; color: #000000;font-family: STHeiti">我喜欢</label>
+            <select style="color: #1b6d85; width: 250px; height: 35px; border-radius: 20px; text-align: center; align-content: center"
+                    name="select">
+                <option style="border-radius: 20px;">玄幻小说</option>
+                <option value="修真小说">修真小说</option>
+                <option value="都市小说">都市小说</option>
+                <option value="历史小说">历史小说</option>
+                <option value="网游小说">网游小说</option>
+                <option value="科幻小说">科幻小说</option>
+                <option value="恐怖小说">恐怖小说</option>
+                <option value="其他小说">其他小说</option>
+            </select>
+            <br>
 
-  <label>&nbsp;</label><br>
-  <label style="font-size: 16px; color: #000000; font-family: STHeiti">原密码</label>
-  <input type="password" name="pwd1" style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center; color: #1b6d85" required placeholder="输入您的原密码"><br>
-  <label>&nbsp;</label><br>
-  <label style="font-size: 16px; color: #000000; font-family: STHeiti">新密码</label>
-  <input type="password" name="pwd2" style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center; color: #1b6d85" required placeholder="再次输入您的密码"><br>
+            <label>&nbsp;</label><br>
+            <label style="font-size: 16px; color: #000000; font-family: STHeiti">原密码</label>
+            <input type="password" name="pwd1"
+                   style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center; color: #1b6d85"
+                   required placeholder="输入您的原密码"><br>
+            <label>&nbsp;</label><br>
+            <label style="font-size: 16px; color: #000000; font-family: STHeiti">新密码</label>
+            <input type="password" name="pwd2"
+                   style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center; color: #1b6d85"
+                   required placeholder="再次输入您的密码"><br>
 
-    <label style="padding-top: 5px;">&nbsp;
-      {% for message in get_flashed_messages() %}
-        {{ message }}
-  {% endfor %}</label><br>
-  <input type="submit" value="修改" style="width: 100px; text-align: center;" class="btn btn-primary">
+            <label style="padding-top: 5px;">&nbsp;
+                {% for message in get_flashed_messages() %}
+                    {{ message }}
+                {% endfor %}</label><br>
+            <input type="submit" value="修改" style="width: 100px; text-align: center;" class="btn btn-primary">
 
-</form>
-</div>
-</div>
-
-
+        </form>
+    </div>
+    </div>
 
 
-
-</body>
+    </body>
 {% endblock %}

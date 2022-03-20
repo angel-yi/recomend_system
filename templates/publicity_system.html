@@ -5,13 +5,41 @@
     <div class="row">
         <div class="col-md-3" style="width: 20%; height: 600px; margin-top: 10px;
             text-align: center; border-radius: 20px; margin-left: 30px; color: black">
-            <a href="/background/management/system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #bee5f9; border-radius: 20px; font-size: 20px; color: black">快捷菜单 ⬇⬇⬇</div></a>
-            <a href="/class_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #DAC804; border-radius: 20px; font-size: 20px; color: black">分类管理</div></a>
-            <a href="/background_author_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #00aabb; border-radius: 20px; font-size: 20px; color: black">作者管理</div></a>
-            <a href="/book_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #8c8c8c; border-radius: 20px; font-size: 20px; color: black">书籍管理</div></a>
-            <a href="/member_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #c1e2b3; border-radius: 20px; font-size: 20px; color: black">会员管理</div></a>
-            <a href="/publicity_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #ce8483; border-radius: 20px; font-size: 20px; color: black">公告管理</div></a>
-            <a href="/data_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #f1ddb8; border-radius: 20px; font-size: 20px; color: black">网站数据</div></a>
+            <a href="/background/management/system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #bee5f9; border-radius: 20px; font-size: 20px; color: black">
+                    快捷菜单 ⬇⬇⬇
+                </div>
+            </a>
+            <a href="/class_system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #DAC804; border-radius: 20px; font-size: 20px; color: black">
+                    分类管理
+                </div>
+            </a>
+            <a href="/background_author_system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #00aabb; border-radius: 20px; font-size: 20px; color: black">
+                    作者管理
+                </div>
+            </a>
+            <a href="/book_system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #8c8c8c; border-radius: 20px; font-size: 20px; color: black">
+                    书籍管理
+                </div>
+            </a>
+            <a href="/member_system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #c1e2b3; border-radius: 20px; font-size: 20px; color: black">
+                    会员管理
+                </div>
+            </a>
+            <a href="/publicity_system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #ce8483; border-radius: 20px; font-size: 20px; color: black">
+                    公告管理
+                </div>
+            </a>
+            <a href="/data_system">
+                <div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #f1ddb8; border-radius: 20px; font-size: 20px; color: black">
+                    网站数据
+                </div>
+            </a>
         </div>
         <div class="col-md-7" style="width: 76%; height: 640px;background-color: #c9e2b3; margin-top: 10px;
             text-align: center; border-radius: 20px; margin-left: 0px;">
@@ -19,14 +47,16 @@
                 <p style="font-size: 36px;">
                     公告管理
                     <button class="btn btn-info" data-toggle="modal" data-target="#myModal_edit_1"
-                            data-whatever="send">发布公告</button>
+                            data-whatever="send">发布公告
+                    </button>
                 <div class="modal fade" id="myModal_edit_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel">发布公告&nbsp;&nbsp;<span style="color: #DAC804; font-size: 18px;"></span></h4>
+                                <h4 class="modal-title" id="myModalLabel">发布公告&nbsp;&nbsp;<span
+                                        style="color: #DAC804; font-size: 18px;"></span></h4>
                             </div>
                             <form method="post" action="/send_publicity">
                                 <div class="modal-body">
@@ -60,29 +90,38 @@
                             <td style="text-align: left; width: 50%">{{ publicity.content }}</td>
                             <td style="text-align: center; padding-top: 2%; width: 12%">{{ publicity.date }}</td>
                             <td style="text-align: center; padding-top: 2%; width: 12%">
-                                <button  type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal_delete{{ publicity['id'] }}"
-                            data-whatever="{{ publicity['id'] }}">删除</button>
-                                        <div class="modal fade" id="myModal_delete{{ publicity['id'] }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                          <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                              <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                        data-target="#myModal_delete{{ publicity['id'] }}"
+                                        data-whatever="{{ publicity['id'] }}">删除
+                                </button>
+                                <div class="modal fade" id="myModal_delete{{ publicity['id'] }}" tabindex="-1"
+                                     role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
                                                     <span aria-hidden="true">&times;</span></button>
-                                                  <h4 class="modal-title" id="myModalLabel">删除分类&nbsp;&nbsp;<span style="color: #DAC804; font-size: 18px;">{{ publicity['title'] }}</span></h4>
-                                              </div>
-                                                <form method="post" action="/delete_publicity">
-                                                  <div class="modal-body">
-                                                      <label>确认删除 {{ publicity['title'] }} 吗？</label>
-                                                      <input type="hidden" name="publicity_id" value="{{ publicity['id'] }}">
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                                    <button type="submit" class="btn btn-primary">确认</button>
-                                                  </div>
-                                                </form>
+                                                <h4 class="modal-title" id="myModalLabel">删除分类&nbsp;&nbsp;<span
+                                                        style="color: #DAC804; font-size: 18px;">{{ publicity['title'] }}</span>
+                                                </h4>
                                             </div>
-                                          </div>
+                                            <form method="post" action="/delete_publicity">
+                                                <div class="modal-body">
+                                                    <label>确认删除 {{ publicity['title'] }} 吗？</label>
+                                                    <input type="hidden" name="publicity_id"
+                                                           value="{{ publicity['id'] }}">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                        取消
+                                                    </button>
+                                                    <button type="submit" class="btn btn-primary">确认</button>
+                                                </div>
+                                            </form>
                                         </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     {% endfor %}

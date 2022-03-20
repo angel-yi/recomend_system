@@ -2,29 +2,29 @@
 import datetime
 import multiprocessing
 import os
-import random
-import time
-from datetime import timedelta
-import requests
-import upyun
-
-from tuijian import FenLei, SouSuo
-from zzb_test import run as Run
-from MiaoshuFenci import Miaoshu_Fenci
-from usertj import User_Tj as usertj, history_read
 import pymysql
+import random
+import requests
+import time
+import upyun
+from datetime import timedelta
+from flask import Flask, render_template, session, request, flash, redirect, url_for
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template, session, request, flash, redirect, url_for
 
 import dw
+from MiaoshuFenci import Miaoshu_Fenci
 from mysql_connect import SqlCx
 from sqlalchemy_packeg import *
+from tuijian import FenLei, SouSuo
+from usertj import User_Tj as usertj, history_read
+from zzb_test import run as Run
 
 pymysql.install_as_MySQLdb()
 
 app = Flask(__name__)
+
 
 # 数据库配置类
 class Config(object):
@@ -38,6 +38,7 @@ class Config(object):
     # SQLALCHEMY_MAX_OVERFLOW = 100000
     # SESSION过期时间设置
     PERMANENT_SESSION_LIFETIME = timedelta(days=31)
+
 
 # 配置信息，初始化相关对象
 app.config.from_object(Config)
@@ -53,6 +54,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'JPG', 'PNG', 'gif', 'GIF'])
 image_ext = ['png', 'jpg', 'JPG', 'PNG', 'gif', 'GIF']
 
+
 def safe():
     """
     安全管理函数，处于登录状态返回请求页面，非登录状态返回登录页面
@@ -60,6 +62,7 @@ def safe():
     """
     if session.get('user_id') == '':
         return redirect(url_for("login"))
+
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
@@ -117,6 +120,7 @@ def login():
         return render_template("login.html")
     return render_template("login.html")
 
+
 @app.route("/background/management/system", methods=["POST", "GET"])
 def background_system():
     admin_user = session.get('admin_user')
@@ -125,6 +129,7 @@ def background_system():
         return render_template("background_system.html")
     else:
         return redirect(url_for('login'))
+
 
 @app.route("/class_system", methods=["POST", "GET"])
 @app.route("/class_system/<int:page>", methods=["POST", "GET"])
@@ -138,6 +143,7 @@ def class_system(page=1):
     else:
         return redirect(url_for('login'))
 
+
 @app.route('/edit_class', methods=['POST'])
 def admin_edit_class():
     if session.get('admin_user'):
@@ -149,6 +155,7 @@ def admin_edit_class():
         return redirect(url_for('class_system'))
     else:
         return redirect(url_for('login'))
+
 
 @app.route("/book_system", methods=["POST", "GET"])
 @app.route("/book_system/<int:page>", methods=["POST", "GET"])
@@ -162,6 +169,7 @@ def book_system(page=1):
     else:
         return redirect(url_for('login'))
 
+
 @app.route("/background_author_system", methods=["POST", "GET"])
 def background_author_system():
     if session.get('admin_user'):
@@ -170,6 +178,7 @@ def background_author_system():
         return render_template("author_system.html", author=author)
     else:
         return redirect(url_for('login'))
+
 
 @app.route("/member_system", methods=["POST", "GET"])
 def member_system():
@@ -180,6 +189,7 @@ def member_system():
     else:
         return redirect(url_for('login'))
 
+
 @app.route("/publicity_system", methods=["POST", "GET"])
 def publicity_system():
     if session.get('admin_user'):
@@ -188,6 +198,7 @@ def publicity_system():
         return render_template("publicity_system.html", publicity=publicity)
     else:
         return redirect(url_for('login'))
+
 
 @app.route("/send_publicity", methods=["POST"])
 def send_publicity():
@@ -203,6 +214,7 @@ def send_publicity():
     else:
         return redirect(url_for('login'))
 
+
 @app.route("/delete_publicity", methods=["POST"])
 def delete_publicity():
     if session.get('admin_user'):
@@ -214,6 +226,7 @@ def delete_publicity():
     else:
         return redirect(url_for('login'))
 
+
 @app.route("/data_system", methods=["GET"])
 def data_system():
     if session.get('admin_user'):
@@ -221,12 +234,14 @@ def data_system():
     else:
         return redirect(url_for('login'))
 
+
 @app.route('/data/<int:name>', methods=['GET'])
 def admin_system_data_profile(name):
     # dw.info_count()
     # dw.user_count()
     dw.class_count()
     return render_template(f'{name}.html')
+
 
 @app.route("/xiugaixinxi", methods=['POST', 'GET'])
 def xiugaixinxi():
@@ -370,7 +385,6 @@ def like(book_id):
     except:
         return render_template("loginerror.html")
     return redirect(url_for("xiangqing", book_id=book_id))
-
 
 
 @app.route("/userinfo")
@@ -1083,7 +1097,6 @@ def internal_server_error(e):
     :return:
     """
     return render_template('500.html'), 500
-
 
 
 if __name__ == '__main__':

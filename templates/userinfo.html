@@ -3,82 +3,87 @@
 
 
 {% block content %}
-{{ super() }}
-<body style="background-image: url('/static/images/4a926626b6b0618ea0636b1c782d6283.png')">
+    {{ super() }}
+    <body style="background-image: url('/static/images/4a926626b6b0618ea0636b1c782d6283.png')">
 
-<div class="row">
-    <div class="col-md-4">
-        <div style="text-align: center; color: #f8f8f8; height: 300px;padding-top: 80px; margin-right: 20px;">
-            <p style="padding-left: 125px;">
-                {{ session.get('username') }}&nbsp;&nbsp;
-                {% if mypoint[0].c > 200 and info[0].isauthor == 0 %}
-                <a style="font-size: 14px; color: red">本站会员</a>
-                {% elif mypoint[0].c > 0 and info[0].isauthor == 1 %}
-                <a style="font-size: 14px; color: red">认证作者</a>
-                {% else %}
-                <a style="font-size: 14px; color: red">普通用户</a>
-                {% endif %}
+    <div class="row">
+        <div class="col-md-4">
+            <div style="text-align: center; color: #f8f8f8; height: 300px;padding-top: 80px; margin-right: 20px;">
+                <p style="padding-left: 125px;">
+                    {{ session.get('username') }}&nbsp;&nbsp;
+                    {% if mypoint[0].c > 200 and info[0].isauthor == 0 %}
+                        <a style="font-size: 14px; color: red">本站会员</a>
+                    {% elif mypoint[0].c > 0 and info[0].isauthor == 1 %}
+                        <a style="font-size: 14px; color: red">认证作者</a>
+                    {% else %}
+                        <a style="font-size: 14px; color: red">普通用户</a>
+                    {% endif %}
 
-                <a style="font-size: 14px; color: red">积分&nbsp;&nbsp;{{ mypoint[0].c }}</a>
-            </p>
-            <img src="/static/images/bg3.png" width="100px;" height="100px;" style="border-radius: 50px;">
+                    <a style="font-size: 14px; color: red">积分&nbsp;&nbsp;{{ mypoint[0].c }}</a>
+                </p>
+                <img src="/static/images/bg3.png" width="100px;" height="100px;" style="border-radius: 50px;">
+            </div>
         </div>
-    </div>
-    <div class="col-md-8">
-        <div style="text-align: center; color: #f8f8f8;  font-size: 14px;width: 800px; margin-top: 110px;margin-left: 20px;
+        <div class="col-md-8">
+            <div style="text-align: center; color: #f8f8f8;  font-size: 14px;width: 800px; margin-top: 110px;margin-left: 20px;
         background-color: slategrey; border-radius:20px;" class="container">
-            <hr>
-            <p style="font-size: 18px; color: #f8f8f8">
-                <a href="/userinfo" style="color: #f8f8f8; padding-left: 20px;">|我的主页|</a>
-                <a href="/xiugaixinxi" style="color: #f8f8f8; padding-left: 20px;">|修改信息|</a>
-                <a href="/mycollection"style="color: #f8f8f8; padding-left: 20px;">|我的收藏|</a>
-                {#                <a href="/mylike" style="color: #f8f8f8; padding-left: 20px;">|我喜欢的|</a>#}
-                <a href="/myhistory" style="color: #f8f8f8; padding-left: 20px;">|历史记录|</a>
-                {% if info[0].isauthor == 0 %}
-                <a href="/certification" style="color: #DAC804; padding-left: 20px;">|认证成为作者|</a>
-                {% else %}
-                <a href="/author_system" style="color: #DAC804; padding-left: 20px;">|作者系统|</a>
-                {% endif %}
-            </p>
-            <hr>
+                <hr>
+                <p style="font-size: 18px; color: #f8f8f8">
+                    <a href="/userinfo" style="color: #f8f8f8; padding-left: 20px;">|我的主页|</a>
+                    <a href="/xiugaixinxi" style="color: #f8f8f8; padding-left: 20px;">|修改信息|</a>
+                    <a href="/mycollection" style="color: #f8f8f8; padding-left: 20px;">|我的收藏|</a>
+                    {#                <a href="/mylike" style="color: #f8f8f8; padding-left: 20px;">|我喜欢的|</a>#}
+                    <a href="/myhistory" style="color: #f8f8f8; padding-left: 20px;">|历史记录|</a>
+                    {% if info[0].isauthor == 0 %}
+                        <a href="/certification" style="color: #DAC804; padding-left: 20px;">|认证成为作者|</a>
+                    {% else %}
+                        <a href="/author_system" style="color: #DAC804; padding-left: 20px;">|作者系统|</a>
+                    {% endif %}
+                </p>
+                <hr>
+            </div>
         </div>
     </div>
-</div>
-<hr>
-<div style="border-radius:20px;background-color: slategrey; text-align: center">
-    <p style="color: #FFFFFF;font-size: 18px;padding-top: 10px;">根据您最近浏览推荐</p>
-    <table style="text-align: center; border-color: #0000FF; width: 100%; text-align: center; " border="0rem;">
-        <tr style="height: 270px;">
-            {% for zuijin in zuijin %}
-            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuijin.id }}"><img src="{{ zuijin.book_img }}" width="170px;" height="220px;"></img><br>
-                <p style="font-family: Harrington; font-size: 14px; color: #FFFFFF">{{ zuijin.book_name}}</p></a></th>
-            {% endfor %}
-        </tr>
-    </table>
+    <hr>
+    <div style="border-radius:20px;background-color: slategrey; text-align: center">
+        <p style="color: #FFFFFF;font-size: 18px;padding-top: 10px;">根据您最近浏览推荐</p>
+        <table style="text-align: center; border-color: #0000FF; width: 100%; text-align: center; " border="0rem;">
+            <tr style="height: 270px;">
+                {% for zuijin in zuijin %}
+                    <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuijin.id }}"><img
+                            src="{{ zuijin.book_img }}" width="170px;" height="220px;"></img><br>
+                        <p style="font-family: Harrington; font-size: 14px; color: #FFFFFF">{{ zuijin.book_name }}</p>
+                    </a></th>
+                {% endfor %}
+            </tr>
+        </table>
+        <br>
+    </div>
     <br>
-</div>
-<br>
-<div style="border-radius:20px;background-color: slategrey; text-align: center">
-    <p style="color: #FFFFFF;font-size: 18px;padding-top: 10px;">根据您最近阅读推荐</p>
-    <table style="text-align: center; border-color: #0000FF; width: 100%; text-align: center; " border="0rem;">
-        <tr style="height: 270px;">
-            {% for lishi in lishi %}
-            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ lishi.id }}"><img src="{{ lishi.book_img }}" width="170px;" height="220px;"></img><br>
-                <p style="font-family: Harrington; font-size: 14px; color: #FFFFFF">{{ lishi.book_name}}</p></a></th>
-            {% endfor %}
+    <div style="border-radius:20px;background-color: slategrey; text-align: center">
+        <p style="color: #FFFFFF;font-size: 18px;padding-top: 10px;">根据您最近阅读推荐</p>
+        <table style="text-align: center; border-color: #0000FF; width: 100%; text-align: center; " border="0rem;">
+            <tr style="height: 270px;">
+                {% for lishi in lishi %}
+                    <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ lishi.id }}"><img
+                            src="{{ lishi.book_img }}" width="170px;" height="220px;"></img><br>
+                        <p style="font-family: Harrington; font-size: 14px; color: #FFFFFF">{{ lishi.book_name }}</p>
+                    </a></th>
+                {% endfor %}
 
-        </tr>
-    </table>
-    <br>
-</div>
-<hr>
-<div class="bottom" style="text-align: center; height: 100px; background-color: #5e5e5e;padding-top: 5px; border: 0px;">
-    <p style="font-size: 20px;">
-        本站仅作学习使用 内容来源网络 与本人无关 若侵权请联系删除
-    </p>
-    <p style="font-size: 20px;">
-        邮箱：xiaomu041@Gmail.com
-    </p>
-</div>
-</body>
+            </tr>
+        </table>
+        <br>
+    </div>
+    <hr>
+    <div class="bottom"
+         style="text-align: center; height: 100px; background-color: #5e5e5e;padding-top: 5px; border: 0px;">
+        <p style="font-size: 20px;">
+            本站仅作学习使用 内容来源网络 与本人无关 若侵权请联系删除
+        </p>
+        <p style="font-size: 20px;">
+            邮箱：xiaomu041@Gmail.com
+        </p>
+    </div>
+    </body>
 {% endblock %}

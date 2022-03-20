@@ -25,10 +25,9 @@
 # （网易云的推荐采用用户喜欢的一首歌，推荐另一首或多首相似度较高的歌曲），根据用户看过的书使用详情页的分词库进行推荐，
 # 6.将那些书推荐给这个用户，
 
+import pymysql
 import threading
 import time
-
-import pymysql
 
 from mysql_connect import SqlCx
 from similar import Similar

@@ -1,6 +1,6 @@
 import csv
-import time
 import jieba
+import time
 
 from mysql_connect import SqlCx
 
@@ -34,6 +34,7 @@ def Miaoshu_Fenci(book_class):
         csv_writer.writerow((str(i['id']), str(ms)))
     t2 = time.time()
     print(t2 - t1)
+
 
 def fenci():
     sql = "SELECT book_class FROM book group by book_class"

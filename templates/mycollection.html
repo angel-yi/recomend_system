@@ -3,68 +3,70 @@
 
 {% block content %}
     {{ super() }}
-<body style="background-image: url('/static/images/4a926626b6b0618ea0636b1c782d6283.png')">
+    <body style="background-image: url('/static/images/4a926626b6b0618ea0636b1c782d6283.png')">
 
-<div style="text-align: center; color: #f8f8f8;  font-size: 14px;width: 80%; background-color: slategrey; border-radius:20px;height: 80%; margin-top: 20px;" class="container">
-    <hr>
-    <p style="font-size: 18px; color: #f8f8f8">
-        <a href="/userinfo" style="color: #f8f8f8; padding-left: 20px;">|我的主页|</a>
-        <a href="/xiugaixinxi" style="color: #f8f8f8; padding-left: 20px;">|修改信息|</a>
-        <a href="/mycollection"style="color: #f8f8f8; padding-left: 20px;">|我的收藏|</a>
-{#        <a href="/mylike" style="color: #f8f8f8; padding-left: 20px;">|我喜欢的|</a>#}
-        <a href="/myhistory" style="color: #f8f8f8; padding-left: 20px;">|历史记录|</a>
-    </p>
-    <hr>
-    <p style="font-size: 18px;">
-        我的收藏
-    </p><hr>
+    <div style="text-align: center; color: #f8f8f8;  font-size: 14px;width: 80%; background-color: slategrey; border-radius:20px;height: 80%; margin-top: 20px;"
+         class="container">
+        <hr>
+        <p style="font-size: 18px; color: #f8f8f8">
+            <a href="/userinfo" style="color: #f8f8f8; padding-left: 20px;">|我的主页|</a>
+            <a href="/xiugaixinxi" style="color: #f8f8f8; padding-left: 20px;">|修改信息|</a>
+            <a href="/mycollection" style="color: #f8f8f8; padding-left: 20px;">|我的收藏|</a>
+            {#        <a href="/mylike" style="color: #f8f8f8; padding-left: 20px;">|我喜欢的|</a>#}
+            <a href="/myhistory" style="color: #f8f8f8; padding-left: 20px;">|历史记录|</a>
+        </p>
+        <hr>
+        <p style="font-size: 18px;">
+            我的收藏
+        </p>
+        <hr>
 
-<div style="text-align: left; background-color: #e2ddff; border-radius:20px; margin-left: 20px;" align="left" class="left">
-    <table border="0px;" style="text-align: center; border-color: #444444; text-align: center; " border="0px;">
-        <thead>
+        <div style="text-align: left; background-color: #e2ddff; border-radius:20px; margin-left: 20px;" align="left"
+             class="left">
+            <table border="0px;" style="text-align: center; border-color: #444444; text-align: center; " border="0px;">
+                <thead>
 
-        </thead>
+                </thead>
 
-        <tbody>
-            {% for i in collection %}
-            <tr style="margin: 20px; padding: 200px; height: 240px;">
-                <th width="190px;" height="180px;">
-                    <a href="/xiangqing/{{ i.id }}">
-                        <img src="{{ i['book_img'] }}" width="190px;"height="230px;" style="border-radius: 20px;">
-                    </a>
-{#                    {{ i['book_img'] }}#}
-                </th>
-                <th width="80%;" style="text-align: left">
-                    <a href="/xiangqing/{{ i.id }}"><p style="font-size: 20px; font-family: 楷体">
-                        {{ i['book_name'] }}<br>
-                    </p></a>
-{#                </th>#}
-{#                <th width="200px;">#}
-                    <p style="font-size: 14px; font-family: 宋体; color: #770101">
-                        {{ i['book_author'] }}<br>
-                    </p>
-{#                </th>#}
-{#                <th width="450px;">#}
-                    <p style="font-size: 14px; font-family: 宋体; color: #1b6d85">
-                        &nbsp;&nbsp;{{ i['book_abstract'].replace('&nbsp;','')[0:400] }}<br>
-                    </p>
-{#                </th>#}
-{#                <th width="200px;">#}
-                    <p style="font-size: 14px; font-family: 楷体">
-                        <input class="btn-danger" type="text" readonly value="{{ i['book_class'] }}" style="width: 90px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
-                    </p>
-                </th>
-            </tr>
-            {% endfor %}
-        </tbody>
+                <tbody>
+                {% for i in collection %}
+                    <tr style="margin: 20px; padding: 200px; height: 240px;">
+                        <th width="190px;" height="180px;">
+                            <a href="/xiangqing/{{ i.id }}">
+                                <img src="{{ i['book_img'] }}" width="190px;" height="230px;"
+                                     style="border-radius: 20px;">
+                            </a>
+                            {#                    {{ i['book_img'] }}#}
+                        </th>
+                        <th width="80%;" style="text-align: left">
+                            <a href="/xiangqing/{{ i.id }}"><p style="font-size: 20px; font-family: 楷体">
+                                {{ i['book_name'] }}<br>
+                            </p></a>
+                            {#                </th>#}
+                            {#                <th width="200px;">#}
+                            <p style="font-size: 14px; font-family: 宋体; color: #770101">
+                                {{ i['book_author'] }}<br>
+                            </p>
+                            {#                </th>#}
+                            {#                <th width="450px;">#}
+                            <p style="font-size: 14px; font-family: 宋体; color: #1b6d85">
+                                &nbsp;&nbsp;{{ i['book_abstract'].replace('&nbsp;','')[0:400] }}<br>
+                            </p>
+                            {#                </th>#}
+                            {#                <th width="200px;">#}
+                            <p style="font-size: 14px; font-family: 楷体">
+                                <input class="btn-danger" type="text" readonly value="{{ i['book_class'] }}"
+                                       style="width: 90px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+                            </p>
+                        </th>
+                    </tr>
+                {% endfor %}
+                </tbody>
 
-    </table>
-</div>
-</div>
+            </table>
+        </div>
+    </div>
 
 
-
-
-
-</body>
+    </body>
 {% endblock %}

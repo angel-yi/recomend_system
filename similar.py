@@ -1,11 +1,10 @@
 # coding:utf-8
 
 import csv
-import math
-import time
-
 import jieba
+import math
 import pymysql
+import time
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 

@@ -1,6 +1,7 @@
 # coding: utf-8
 import pymysql
 
+
 def SqlCx(sql):
     """
     数据库查询函数, 此处用于连接数据库，务必要修改

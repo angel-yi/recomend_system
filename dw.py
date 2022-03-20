@@ -35,6 +35,7 @@ def info_count():
         print()
     bar.render(path)
 
+
 def user_count():
     sql = f"select user_reg_date from users_data order by user_reg_date asc"
     data = SqlCx(sql)
@@ -63,6 +64,7 @@ def user_count():
         print()
     bar.render(path)
 
+
 def class_count():
     sql = f"SELECT book_class,COUNT(*) as c FROM book GROUP BY book_class"
     data = SqlCx(sql)
@@ -74,14 +76,14 @@ def class_count():
     print(book_class_count_list)
     data_pair = [list(z) for z in zip(book_class_list, book_class_count_list)]
     pie = (Pie()
-    #        .add(
-    #     "",
-    #     data_pair=data_pair,
-    #     radius=["30%", "75%"],
-    #     center=["25%", "50%"],
-    #     rosetype="radius",
-    #     label_opts=opts.LabelOpts(is_show=False),
-    # )
+           #        .add(
+           #     "",
+           #     data_pair=data_pair,
+           #     radius=["30%", "75%"],
+           #     center=["25%", "50%"],
+           #     rosetype="radius",
+           #     label_opts=opts.LabelOpts(is_show=False),
+           # )
            .add(
         "",
         data_pair=data_pair,

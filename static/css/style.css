@@ -5,11 +5,11 @@ body {
     margin-bottom: 0px;
 }
 
-img,object form input {
+img, object form input {
     border: 0px;
 }
 
-div,dl,dt,dd,ol,ul,b,li {
+div, dl, dt, dd, ol, ul, b, li {
     margin: 0 auto;
     padding: 0;
     list-style: none;
@@ -301,7 +301,8 @@ td {
     padding-top: 2px;
 }
 
-.225_background {
+.225
+_background {
     background-color: #FEFAEB;
     background-image: url(../images/hzback.gif);
     background-repeat: no-repeat;
@@ -526,7 +527,8 @@ td {
     color: #a5a5a5;
 }
 
-.5f {
+.5
+f {
     color: #5f70a8;
 }
 
@@ -680,7 +682,7 @@ td {
 }
 
 /*ie6*/
-*+html .HighSelectDisplay {
+* + html .HighSelectDisplay {
     position: fixed;
     _position: absolute;
     z-index: 1000;
