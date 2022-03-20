@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    {{ super() }}
+<body style="background-image: url('/static/images/4a926626b6b0618ea0636b1c782d6283.png')">
+
+<div class="container">
+    <div style="text-align: center; color: #f8f8f8;  font-size: 14px;width: 800px; margin-top: 25px;
+        background-color: slategrey; border-radius:20px;" class="container">
+        <hr>
+        <p style="font-size: 18px; color: #f8f8f8">
+            <a href="/create_book"style="color: #f8f8f8; padding-left: 20px;">|新建图书|</a>
+{#            <a href="/edit_book"style="color: #f8f8f8; padding-left: 20px;">|编辑文章|</a>#}
+            <a href="/my_book"style="color: #f8f8f8; padding-left: 20px;">|我的作品|</a>
+            <a href="/my_fans"style="color: #f8f8f8; padding-left: 20px;">|我的粉丝|</a>
+            <a href="/userinfo" style="color: #f8f8f8; padding-left: 20px;">|我的主页|</a>
+            <a href="/xiugaixinxi" style="color: #f8f8f8; padding-left: 20px;">|修改信息|</a>
+        </p>
+        <hr>
+    </div>
+    <hr>
+    <div style="width: 800px; background-color: #3c763d; height: 460px; text-align: center; border-radius: 20px;"
+         class="container">
+        <form method="post" action="/create_book" style="padding-top: 20px;" enctype="multipart/form-data">
+            <label style="font-size: 16px; color: white;font-family: STHeiti">书&nbsp;&nbsp;名&nbsp;&nbsp;</label>
+            <input type="text" name="book_name" style="width: 400px; height: 55px; font-family: KaiTi;
+             font-size: 18px; border-radius:20px; text-align: center; color: #1b6d85"
+                   required placeholder="输入书籍名称"><br>
+            <br>
+            <label style="font-size: 16px; color: white;font-family: STHeiti">作&nbsp;&nbsp;者&nbsp;&nbsp;</label>
+            <input type="text" name="book_author" style="width: 400px; height: 35px; font-family: KaiTi; border-radius:20px;
+             text-align: center; color: #1b6d85" required placeholder="输入作者"><br>
+            <br>
+            <label style="font-size: 16px; color: white;font-family: STHeiti">描&nbsp;&nbsp;述&nbsp;&nbsp;</label>
+            <textarea type="text" name="book_abstract" style="width: 400px; height: 30px; font-family: KaiTi;
+             border-radius:20px; text-align: center; color: #1b6d85" required placeholder="输入本书描述信息，文本框大小可变，可在右下角拖动调节"></textarea><br>
+            <p style="font-size: 12px;">注：描述信息为推荐系统重要数据，请您恰当填写，提高书籍的曝光率</p>
+            <label style="font-size: 16px; color: white;font-family: STHeiti">分&nbsp;&nbsp;类&nbsp;&nbsp;</label>
+            <select style="color: #1b6d85; width: 250px; height: 35px; border-radius: 20px; text-align: right;padding: 0 0 0 55px;"
+                        name="book_class">
+                {% for i in data %}
+                    <option value="{{ i['book_class'] }}">{{ i['book_class'] }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <p style="font-size: 12px; padding-top: 5px;">注：没有您想要的分类？点此<a href="/applicate_class">申请新增分类</a></p>
+            <label style="font-size: 16px; color: white;font-family: STHeiti">图&nbsp;&nbsp;片&nbsp;&nbsp;</label>
+            <input type="text" name="book_img_link" style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px;
+             text-align: center; color: #1b6d85" placeholder="输入图片链接">
+            <input style="text-align: center; height: 35px; font-family: KaiTi; border-radius:20px; margin-left: 290px;padding-top: 10px;"
+                   readonly placeholder="上传图片" type="file" name="book_img">
+            <p style="font-size: 12px; padding-top: 5px;">注：可以选择自己输入图片链接或者上传本机图片 大小为 4：3</p>
+            <br>
+            <label style="padding-top: 5px;">&nbsp;
+              {% for message in get_flashed_messages() %}
+                {{ message }}
+          {% endfor %}</label>
+            <button class="btn btn-danger">确认创建</button>
+            <br>
+        </form>
+    </div>
+</div>
+{% endblock %}

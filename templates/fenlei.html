@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{{ super() }}
+
+<div style="width: 100%; height: 20%; background-color: #f8f8f8; color: #EDFFC8" class="navbar-left" align="center">
+    <ul class="nav navbar-nav" style="font-size: 16px; text-align: center">
+        <!--        <li><a href="#">-->
+        <!--            <input class="btn-group" type="text" readonly value="本站导航 >>" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">-->
+        <!--        </a></li>-->
+        <li>
+            <a href="/fenlei/中国文学">
+                <input class="btn-group" type="text" readonly value="中国文学" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/互联网">
+                <input class="btn-group" type="text" readonly value="互联网" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/励志">
+                <input class="btn-group" type="text" readonly value="励志" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/历史地理">
+                <input class="btn-group" type="text" readonly value="历史地理" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/政治与法律">
+                <input class="btn-group" type="text" readonly value="政治与法律" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/社会科学总论">
+                <input class="btn-group" type="text" readonly value="社会科学总论" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/经济">
+                <input class="btn-group" type="text" readonly value="经济" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/艺术">
+                <input class="btn-group" type="text" readonly value="艺术" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/政治学">
+                <input class="btn-group" type="text" readonly value="政治学" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+
+        <!--        <li><a href="/fenlei/都市小说">-->
+        <!--            <input class="btn-group" type="text" readonly value="都市小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">-->
+
+        <!--        </a></li>-->
+        <!--        <li><a href="/fenlei/历史小说">-->
+        <!--            <input class="btn-group" type="text" readonly value="历史小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">-->
+
+        <!--        </a></li>-->
+        <!--        <li><a href="/fenlei/网游小说">-->
+        <!--            <input class="btn-group" type="text" readonly value="网游小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">-->
+
+        <!--        </a></li>-->
+        <!--        <li><a href="/fenlei/科幻小说">-->
+        <!--            <input class="btn-group" type="text" readonly value="科幻小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">-->
+
+        <!--        </a></li>-->
+        <!--        <li><a href="/fenlei/恐怖小说">-->
+        <!--            <input class="btn-group" type="text" readonly value="恐怖小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">-->
+
+        <!--        </a></li>-->
+        <!--        <li><a href="/fenlei/其他小说">-->
+        <!--            <input class="btn-group" type="text" readonly value="其他小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">-->
+        <!--        </a>-->
+        <!--        </li>-->
+    </ul>
+</div>
+
+<div class="navbar-right" align="center" style="text-align: center; width: 28%; margin-right: 10px; margin-top: 0px;">
+    <div class="panel panel-primary" style="width: 100%">
+        <div class="panel-heading">
+            为&nbsp;您&nbsp;推&nbsp;荐
+        </div>
+        <div class="panel-body">
+            {% for i in data %}
+            <a href="/xiangqing/{{ i.id }}" style="margin: 20px;">
+                {{ i.book_name }}/{{ i.book_author }}
+            </a><hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div style="text-align: left; padding-top: 0rem; background-color: #e2ddff; margin-top: 0rem; width: 70%; border-radius:10px; margin-left: 1rem;" align="left" class="left">
+    <table border="0px;" style="text-align: center; border-color: #444444; width: 100%; text-align: center; ">
+        <tbody>
+        {% for i in fenlei %}
+        <tr style="margin: 20px; padding: 100px; height: 240px;">
+            <th width="190px;" height="180px;">
+                <a href="/xiangqing/{{ i.id }}">
+                    <img src="{{ i['book_img'] }}" width="190px;"height="230px;" style="border-radius: 20px;">
+                </a>
+                {#                    {{ i['book_img'] }}#}
+            </th>
+            <th width="70%;" style="text-align: left">
+                <a href="/xiangqing/{{ i.id }}"><p style="font-size: 20px; font-family: 楷体; color: black">
+                    {{ i['book_name'] }}<br>
+                </p></a>
+                {#                </th>#}
+            {#                <th width="200px;">#}
+            <p style="font-size: 14px; font-family: 宋体; color: #770101">
+                {{ i['book_author'] }}<br>
+            </p>
+            {#                </th>#}
+            {#                <th width="450px;">#}
+            <p style="font-size: 13px; font-family: 宋体; color: #1b6d85">
+                &nbsp;&nbsp;{{ i['book_abstract'].replace('&nbsp;','')[0:400] }}<br>
+            </p>
+            {#                </th>#}
+            {#                <th width="200px;">#}
+            <p style="font-size: 14px; font-family: 楷体">
+                <input class="btn-danger" type="text" readonly value="{{ i['book_class'] }}" style="width: 90px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </p>
+        </th>
+        </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+    <div style="text-align: center; padding-top: 20px; color:#FF0000; padding-bottom: 40px;" >
+        {% if page==1%}
+        <span><a href="/fenlei/{{ fenlei[0].book_class }}/{{ 1 }}">首页</a></span>
+        <span title="当前页">当前页：{{ page }}</span>
+        <span><a href="/fenlei/{{ fenlei[0].book_class }}/{{ page+1 }}">下一页</a></span>
+        <span><a href="/fenlei/{{ fenlei[0].book_class }}/{{ page_num }}">尾页</a></span>
+        <span>总页数：{{ page_num + 1 }}</span>
+        {% else %}
+        <span><a href="/fenlei/{{ fenlei[0].book_class }}/{{ 1 }}">首页</a></span>
+        <span title="当前页">当前页：{{ page }}</span>
+        <span title="上一页"><a href="/fenlei/{{ fenlei[0].book_class }}/{{ page-1 }}">上一页</a></span>
+        <span><a href="/fenlei/{{ fenlei[0].book_class }}/{{ page+1 }}">下一页</a></span>
+        <span><a href="/fenlei/{{ fenlei[0].book_class }}/{{ page_num }}">尾页</a></span>
+        <span>总页数：{{ page_num + 1 }}</span>
+        {% endif %}
+    </div>
+</div>
+
+<div class="bottom" style="text-align: center; height: 100px; background-color: #5e5e5e;padding-top: 5px; border: 0px;">
+    <p style="font-size: 20px;">
+        本站仅作学习使用 内容来源网络 与本人无关 若侵权请联系删除
+    </p>
+    <p style="font-size: 20px;">
+        邮箱：xiaomu041@Gmail.com
+    </p>
+</div>
+{% endblock %}

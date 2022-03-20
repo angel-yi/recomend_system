@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{{ super() }}
+
+<div style="width: 100%; height: 60px; background-color: #f8f8f8; color: #EDFFC8" class="navbar-left" align="center">
+    <ul class="nav navbar-nav" style="font-size: 16px; text-align: center">
+{#        <li><a href="#">#}
+{#            <input class="btn-group" type="text" readonly value="本站导航 >>" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">#}
+{#        </a></li>#}
+        <li>
+            <a href="/fenlei/中国文学">
+                <input class="btn-group" type="text" readonly value="中国文学" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/互联网">
+                <input class="btn-group" type="text" readonly value="互联网" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/励志">
+                <input class="btn-group" type="text" readonly value="励志" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/历史地理">
+                <input class="btn-group" type="text" readonly value="历史地理" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/政治与法律">
+                <input class="btn-group" type="text" readonly value="政治与法律" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/社会科学总论">
+                <input class="btn-group" type="text" readonly value="社会科学总论" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/经济">
+                <input class="btn-group" type="text" readonly value="经济" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/艺术">
+                <input class="btn-group" type="text" readonly value="艺术" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+        <li>
+            <a href="/fenlei/政治学">
+                <input class="btn-group" type="text" readonly value="政治学" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a>
+        </li>
+    </ul>
+</div>
+
+{##}
+{#<div class="navbar-right" align="center" style="text-align: center; width: 27%; margin-right: 10px; margin-top: 20px;">#}
+{#<div class="panel panel-primary" style="width: 100%">#}
+{#  <div class="panel-heading">#}
+{#    更多推荐#}
+{#  </div>#}
+{#  <div class="panel-body">#}
+{#      <a href="/fenlei/小说" style="margin: 20px;">#}
+{#          推荐列表#}
+{#      </a>#}
+{#  </div>#}
+{#</div>#}
+{#</div>#}
+
+
+    <div style="width: 100%; height: 100%;">
+<div style="text-align: left; padding-top: 10px; background-color: #e2ddff; margin-top: 65px; width: 70%; border-radius:20px; margin-left: 20px;" align="left" class="left">
+    <table border="0px;" style="text-align: center; border-color: #444444; text-align: center; " border="0px;">
+        <thead>
+        </thead>
+
+        <tbody>
+        <tr style="text-align: center">
+            <p style="text-align: center">书名：{{ book_name }}</p><hr>
+        </tr>
+{#            {% for i in x.split('     ') %}#}
+{#            <tr style="margin: 20px; padding: 20px; height: 240px; font-size: 20px;">#}
+            <p style="font-size: 18px;">
+                本书尚未收集到，您可通过如下链接进行观看<a href="{{ x }}">{{ x }}</a>
+            </p><br>
+{#            </tr>#}
+{#            {% endfor %}#}
+{#        <tr>#}
+{#            <p>#}
+{#                    本书结束#}
+{#                </p>#}
+{#        </tr>#}
+        </tbody>
+    </table>
+{#<div style="text-align: center; padding-top: 20px; color:#FF0000; padding-bottom: 40px;" >#}
+{#    {% if page==1%}#}
+{#      <span><a href="/fenlei/{{ fenlei[0].book_class }}/{{ 1 }}">首页</a></span>#}
+{#      <span title="当前页">当前页：{{ page }}</span>#}
+{#      <span><a href="/fenlei/{{ fenlei[0].book_class }}/{{ page+1 }}">下一页</a></span>#}
+{#      <span><a href="/fenlei/{{ fenlei[0].book_class }}/{{ page_num }}">尾页</a></span>#}
+{#      <span>总页数：{{ page_num }}</span>#}
+{#    {% else %}#}
+{#      <span><a href="/fenlei/{{ fenlei[0].book_class }}/{{ 1 }}">首页</a></span>#}
+{#      <span title="当前页">当前页：{{ page }}</span>#}
+{#      <span title="上一页"><a href="/fenlei/{{ fenlei[0].book_class }}/{{ page-1 }}">上一页</a></span>#}
+{#      <span><a href="/fenlei/{{ fenlei[0].book_class }}/{{ page+1 }}">下一页</a></span>#}
+{#      <span><a href="/fenlei/{{ fenlei[0].book_class }}/{{ page_num }}">尾页</a></span>#}
+{#      <span>总页数：{{ page_num }}</span>#}
+{#    {% endif %}#}
+{#</div>#}
+</div>
+
+<div class="bottom" style="text-align: center; height: 100px; background-color: #5e5e5e;padding-top: 5px; border: 0px;">
+<p style="font-size: 20px;">
+    本站仅作学习使用 内容来源网络 与本人无关 若侵权请联系删除
+</p>
+<p style="font-size: 20px;">
+    邮箱：xiaomu041@Gmail.com
+</p>
+</div>
+    </div>
+{% endblock %}

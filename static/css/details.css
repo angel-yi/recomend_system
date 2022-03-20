@@ -1,0 +1,59 @@
+/*详情页css样式*/
+#top_button{
+     background-color: beige;
+    top: 0;
+    z-index: 9999;
+    position: fixed ! important;
+    width: 100%;
+}
+#top_button div{
+    font-size: 5rem;
+}
+
+#null{
+    height: 180px;
+}
+#top_detail{
+    background-color: white;
+    height: 60%
+}
+#top_detail .col-4{
+    text-align: center;
+}
+#top_detail .col-4 img{
+    height: 400px;
+    width: 300px;
+}
+#top_detail #v_title{
+    font-size: 3rem;
+}
+#top_detail .col-8 p{
+    font-size: 2.5rem;
+}
+#yuan{
+    font-size: 3rem;
+}
+#null_2{
+    background-color: #66afe9;
+    font-size: 3rem;
+}
+#descibe{
+    font-size: 3rem;
+}
+#play div iframe{
+    width: 100%;
+    height: 700px;
+}
+#play div video{
+    width: 100%;
+    height: 700px;
+}
+#usg{
+    text-align: center;
+    color: #d58512
+}
+
+#ji div a{
+    font-size: 3rem;
+    text-align: center;
+}

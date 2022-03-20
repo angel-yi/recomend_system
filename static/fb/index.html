@@ -1,0 +1,308 @@
+{% extends "base.html" %}
+
+{% block title %}Angel文学{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/bootstrap.min.css"/>
+{% endblock %}
+{% block content %}
+<title>Angel-文学网</title>
+<nav class="navbar-collapse collapse" style="text-align: center; height: 80px; background-color: #bee5f9;padding-top: 5px;border: 0px; color: #f8f8f8">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/index">Angel-小说</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5" style="color: #f8f8f8">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/index">首页</a></li>
+        <li><a href="/index">热门</a></li>
+{#        <li><a href="/index">排行榜</a></li>#}
+        <li><a href="/fenlei/都市小说">分类</a></li>
+        <li><a href="/fenlei/玄幻小说">玄幻小说</a></li>
+
+
+        <li class="dropdown" style="color: #f8f8f8">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多标签 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/fenlei/修真小说">修真小说</a></li>
+            <li><a href="/fenlei/都市小说">都市小说</a></li>
+            <li><a href="/fenlei/网游小说">网游小说</a></li>
+              <li><a href="/fenlei/其他小说">更多分类</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <form action="/sousuo" method="post" class="navbar-form navbar-left" style="padding-left: 250px;">
+        <div class="form-group">
+          <input type="text" class="form-control" name="gjc" placeholder="搜索书籍" style="border-radius:20px">
+        </div>
+        <button type="submit" class="btn btn-default" style="border-radius:20px">搜索</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right" >
+          {% if session.get('username') %}
+          <li>
+              <a>Hello {{ session.get('username') }}</a>
+          </li>
+              <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/userinfo">个人中心</a></li>
+            <li><a href="/xiugaixinxi">修改密码</a></li>
+            <li><a href="/xiugaixinxi">修改昵称</a></li>
+              <li><a href="/tuichu">退出登录</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/myhistory">我的记录</a></li>
+              <li><a href="/mycollection">我的收藏</a></li>
+          </ul>
+        </li>
+          {% else %}
+            <li>
+              <a href="/reg">注册</a>
+          </li>
+              <li>
+              <a href="/login">登录</a>
+          </li>
+          {% endif %}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<table class="cbl" width="240" border="0" align="left" style="margin-top: 20px; height: 550px;">
+
+  <tr>
+    <th height="70" scope="row" style="text-align:center; background-color: #8B0001; color: #f8f8f8">今日书籍排行榜</th>
+      <th height="70" scope="row" style="text-align:center; background-color: #8B0001; color: #f8f8f8">阅读量</th>
+  </tr>
+    {% for i in book_paihang %}
+  <tr>
+      <th><a href="/xiangqing/{{ i.book_id }}">
+          {{i.book_name}}
+      </a></th>
+      <th>{{ i.count }}</th>
+  </tr>
+    {% endfor %}
+
+</table>
+
+<table class="cbl" width="240" height="550px;" border="0" align="right" style="margin-top: 20px">
+
+  <tr>
+    <th height="70" scope="row" style="text-align:center; background-color: #1b6d85; color: #f8f8f8">今日读者排行榜</th>
+      <th height="70" scope="row" style="text-align:center; background-color: #1b6d85; color: #f8f8f8">阅读量</th>
+  </tr>
+  {% for i in user_paihang %}
+  <tr>
+      <th>
+          {{i.username}}
+      </th>
+      <th>{{ i.count }}</th>
+  </tr>
+    {% endfor %}
+
+</table>
+
+    <div id="carousel-example-generic" class="carousel slide container" data-ride="carousel" style="width: 900px;height: 400px; text-align: center; padding-top: 20px;">
+        <!-- 指示器 -->
+        <ol class="carousel-indicators" style="padding-top: 30px;">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <!-- 轮播图片及说明文字 -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="/static/images/e943e20ec1e118dde1ed869de360aafa.png" style="width: 900px;height: 400px;" alt="图片1">
+          </div>
+          <div class="item">
+            <img src="/static/images/4a926626b6b0618ea0636b1c782d6283.png" style="width: 900px;height: 400px;" alt="图片2">
+          </div>
+          <div class="item">
+            <img src="/static/images/71c317243ba2975780b74a1d01acc6a9.png" style="width: 900px;height: 400px;" alt="图片3">
+          </div>
+        </div>
+        <!-- 控制按钮：左右切换 -->
+{#        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">#}
+{#          <span class="glyphicon glyphicon-chevron-left"></span>#}
+{#        </a>#}
+{#        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">#}
+{#          <span class="glyphicon glyphicon-chevron-right"></span>#}
+{#        </a>#}
+      </div>
+
+<div style="text-align: center; padding-left: 309px; padding-top: 30px;" align="center">
+    <table style="text-align: center; border-color: #0000FF; width: 900px; text-align: center; " border="0px;">
+        <tr style="height: 50px;">
+            <th colspan="5"><p style="font-size: 25px;">当前热门修真小说</p></th>
+        </tr>
+        <tr style="height: 270px;">
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[0].id }}"><img src="{{ zuire[0].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[0].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[1].id }}"><img src="{{ zuire[1].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[1].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[2].id }}"><img src="{{ zuire[2].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[2].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[3].id }}"><img src="{{ zuire[3].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[3].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[4].id }}"><img src="{{ zuire[4].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[4].book_name}}</p></a></th>
+        </tr>
+        <tr style="height: 270px;">
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[5].id }}"><img src="{{ zuire[5].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[5].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[6].id }}"><img src="{{ zuire[6].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[6].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[7].id }}"><img src="{{ zuire[7].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[7].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[8].id }}"><img src="{{ zuire[8].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[8].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[9].id }}"><img src="{{ zuire[9].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[9].book_name}}</p></a></th>
+        </tr>
+    </table>
+</div>
+<div style="text-align: center; padding-left: 309px; padding-top: 30px; " align="center">
+    <table style="text-align: center; border-color: #0000FF; width: 900px; text-align: center" border="0px;">
+        <tr style="height: 50px;">
+            <th colspan="5"><p style="font-size: 25px;">当前热门玄幻小说</p></th>
+        </tr>
+        <tr style="height: 270px;">
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ xiaoshuo[0].id }}"><img src="{{ xiaoshuo[0].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ xiaoshuo[0].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ xiaoshuo[1].id }}"><img src="{{ xiaoshuo[1].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ xiaoshuo[1].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ xiaoshuo[2].id }}"><img src="{{ xiaoshuo[2].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ xiaoshuo[2].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ xiaoshuo[3].id }}"><img src="{{ xiaoshuo[3].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ xiaoshuo[3].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ xiaoshuo[4].id }}"><img src="{{ xiaoshuo[4].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ xiaoshuo[4].book_name}}</p></a></th>
+        </tr>
+        <tr style="height: 270px;">
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ xiaoshuo[5].id }}"><img src="{{ xiaoshuo[5].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ xiaoshuo[5].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ xiaoshuo[6].id }}"><img src="{{ xiaoshuo[6].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ xiaoshuo[6].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ xiaoshuo[7].id }}"><img src="{{ xiaoshuo[7].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ xiaoshuo[7].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ xiaoshuo[8].id }}"><img src="{{ xiaoshuo[8].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ xiaoshuo[8].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ xiaoshuo[9].id }}"><img src="{{ xiaoshuo[9].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ xiaoshuo[9].book_name}}</p></a></th>
+        </tr>
+    </table>
+</div>
+
+<div style="text-align: center; padding-left: 309px; padding-top: 30px; " align="center">
+    <table style="text-align: center; border-color: #0000FF; width: 900px; text-align: center" border="0px;">
+        <tr style="height: 50px;">
+            <th colspan="5"><p style="font-size: 25px;">当前热门都市小说</p></th>
+        </tr>
+        <tr style="height: 270px;">
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ manhua[0].id }}"><img src="{{ manhua[0].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ manhua[0].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ manhua[1].id }}"><img src="{{ manhua[1].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ manhua[1].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ manhua[2].id }}"><img src="{{ manhua[2].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ manhua[2].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ manhua[3].id }}"><img src="{{ manhua[3].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ manhua[3].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ manhua[4].id }}"><img src="{{ manhua[4].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ manhua[4].book_name}}</p></a></th>
+        </tr>
+        <tr style="height: 270px;">
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ manhua[5].id }}"><img src="{{ manhua[5].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ manhua[5].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ manhua[6].id }}"><img src="{{ manhua[6].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ manhua[6].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ manhua[7].id }}"><img src="{{ manhua[7].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ manhua[7].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ manhua[8].id }}"><img src="{{ manhua[8].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ manhua[8].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ manhua[9].id }}"><img src="{{ manhua[9].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ manhua[9].book_name}}</p></a></th>
+        </tr>
+    </table>
+</div>
+
+<div style="text-align: center; padding-left: 309px; padding-top: 30px; " align="center">
+    <table style="text-align: center; border-color: #0000FF; width: 900px; text-align: center" border="0px;">
+        <tr style="height: 50px;">
+            <th colspan="5"><p style="font-size: 25px;">当前热门历史小说</p></th>
+        </tr>
+        <tr style="height: 270px;">
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ qingchunwenxue[0].id }}"><img src="{{ qingchunwenxue[0].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ qingchunwenxue[0].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ qingchunwenxue[1].id }}"><img src="{{ qingchunwenxue[1].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ qingchunwenxue[1].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ qingchunwenxue[2].id }}"><img src="{{ qingchunwenxue[2].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ qingchunwenxue[2].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ qingchunwenxue[3].id }}"><img src="{{ qingchunwenxue[3].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ qingchunwenxue[3].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ qingchunwenxue[4].id }}"><img src="{{ qingchunwenxue[4].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ qingchunwenxue[4].book_name}}</p></a></th>
+        </tr>
+        <tr style="height: 270px;">
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ qingchunwenxue[5].id }}"><img src="{{ qingchunwenxue[5].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ qingchunwenxue[5].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ qingchunwenxue[6].id }}"><img src="{{ qingchunwenxue[6].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ qingchunwenxue[6].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ qingchunwenxue[7].id }}"><img src="{{ qingchunwenxue[7].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ qingchunwenxue[7].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ qingchunwenxue[8].id }}"><img src="{{ qingchunwenxue[8].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ qingchunwenxue[8].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ qingchunwenxue[9].id }}"><img src="{{ qingchunwenxue[9].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ qingchunwenxue[9].book_name}}</p></a></th>
+        </tr>
+    </table>
+</div>
+
+<div style="text-align: center; padding-left: 309px; padding-top: 30px; " align="center">
+    <table style="text-align: center; border-color: #0000FF; width: 900px; text-align: center" border="0px;">
+        <tr style="height: 50px;">
+            <th colspan="5"><p style="font-size: 25px;">当前热门网游小说</p></th>
+        </tr>
+        <tr style="height: 270px;">
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ aiqing[0].id }}"><img src="{{ aiqing[0].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ aiqing[0].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ aiqing[1].id }}"><img src="{{ aiqing[1].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ aiqing[1].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ aiqing[2].id }}"><img src="{{ aiqing[2].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ aiqing[2].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ aiqing[3].id }}"><img src="{{ aiqing[3].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ aiqing[3].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ aiqing[4].id }}"><img src="{{ aiqing[4].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ aiqing[4].book_name}}</p></a></th>
+        </tr>
+        <tr style="height: 270px;">
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ aiqing[5].id }}"><img src="{{ aiqing[5].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ aiqing[5].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ aiqing[6].id }}"><img src="{{ aiqing[6].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ aiqing[6].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ aiqing[7].id }}"><img src="{{ aiqing[7].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ aiqing[7].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ aiqing[8].id }}"><img src="{{ aiqing[8].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ aiqing[8].book_name}}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ aiqing[9].id }}"><img src="{{ aiqing[9].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ aiqing[9].book_name}}</p></a></th>
+        </tr>
+    </table>
+</div>
+
+<div class="bottom" style="text-align: center; height: 100px; background-color: #5e5e5e;padding-top: 5px; border: 0px;">
+<p style="font-size: 20px;">
+    本站仅作学习使用 内容来源网络 与本人无关 若侵权请联系删除
+</p>
+<p style="font-size: 20px;">
+    邮箱：xiaomu041@Gmail.com
+</p>
+</div>
+{% endblock %}

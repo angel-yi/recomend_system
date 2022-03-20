@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block title %}Angel文学{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="/static/bootstrap.min.css"/>
+{% endblock %}
+{% block content %}
+    <title>Angel-文学网</title>
+
+    <nav class="navbar-collapse collapse" style="text-align: center; height: 80px; background-color: #bee5f9;padding-top: 5px;border: 0px; color: #f8f8f8">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/index">Angel-小说</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5" style="color: #f8f8f8">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/index">首页</a></li>
+        <li><a href="/index">热门</a></li>
+{#        <li><a href="/index">排行榜</a></li>#}
+        <li><a href="/fenlei/都市小说">分类</a></li>
+        <li><a href="/fenlei/玄幻小说">玄幻小说</a></li>
+
+
+        <li class="dropdown" style="color: #f8f8f8">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多标签 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/fenlei/修真小说">修真小说</a></li>
+            <li><a href="/fenlei/都市小说">都市小说</a></li>
+            <li><a href="/fenlei/网游小说">网游小说</a></li>
+              <li><a href="/fenlei/其他小说">更多分类</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <form action="/sousuo" method="post" class="navbar-form navbar-left" style="padding-left: 250px;">
+        <div class="form-group">
+          <input type="text" class="form-control" name="gjc" placeholder="搜索书籍" style="border-radius:20px">
+        </div>
+        <button type="submit" class="btn btn-default" style="border-radius:20px">搜索</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right" >
+          {% if session.get('username') %}
+          <li>
+              <a>Hello {{ session.get('username') }}</a>
+          </li>
+              <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/userinfo">个人中心</a></li>
+            <li><a href="/xiugaixinxi">修改密码</a></li>
+            <li><a href="/xiugaixinxi">修改昵称</a></li>
+              <li><a href="/tuichu">退出登录</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/myhistory">我的记录</a></li>
+              <li><a href="/mycollection">我的收藏</a></li>
+          </ul>
+        </li>
+          {% else %}
+            <li>
+              <a href="/reg">注册</a>
+          </li>
+              <li>
+              <a href="/login">登录</a>
+          </li>
+          {% endif %}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div style="width: 100%; height: 65px; background-color: #f8f8f8; color: #EDFFC8" class="navbar-left" align="center">
+    <ul class="nav navbar-nav" style="font-size: 16px; text-align: center">
+        <li><a href="#">
+            <input class="btn-group" type="text" readonly value="本站导航 >>" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+        </a></li>
+        <li><a href="/fenlei/玄幻小说">
+            <input class="btn-group" type="text" readonly value="玄幻小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+            </a></li>
+        <li><a href="/fenlei/修真小说">
+            <input class="btn-group" type="text" readonly value="修真小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+
+        </a></li>
+        <li><a href="/fenlei/都市小说">
+            <input class="btn-group" type="text" readonly value="都市小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+
+        </a></li>
+        <li><a href="/fenlei/历史小说">
+            <input class="btn-group" type="text" readonly value="历史小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+
+        </a></li>
+        <li><a href="/fenlei/网游小说">
+            <input class="btn-group" type="text" readonly value="网游小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+
+        </a></li>
+        <li><a href="/fenlei/科幻小说">
+            <input class="btn-group" type="text" readonly value="科幻小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+
+        </a></li>
+        <li><a href="/fenlei/恐怖小说">
+            <input class="btn-group" type="text" readonly value="恐怖小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+
+        </a></li>
+        <li><a href="/fenlei/其他小说">
+            <input class="btn-group" type="text" readonly value="其他小说" style="width: 100px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+        </a>
+        </li>
+    </ul>
+</div>
+
+{##}
+<div class="navbar-right" align="center" style="text-align: center; width: 27%; margin-right: 10px; margin-top: 20px;">
+<div class="panel panel-primary" style="width: 100%">
+  <div class="panel-heading">
+    更多推荐
+  </div>
+  <div class="panel-body">
+      <a href="/fenlei/小说" style="margin: 20px;">
+          推荐列表
+      </a>
+  </div>
+</div>
+</div>
+
+    <div style="width: 100%; height: 100%;">
+<div style="text-align: left; padding-top: 10px; background-color: #e2ddff; margin-top: 65px; width: 70%; border-radius:20px; margin-left: 20px;" align="left" class="left">
+    <table border="0px;" style="text-align: center; border-color: #444444; text-align: center; " border="0px;">
+        <thead>
+        </thead>
+
+        <tbody>
+        <tr style="text-align: center">
+            <p style="text-align: center; font-size: 18px;">书名：{{ book_name }}</p><hr>
+            <p style="text-align: center; font-size: 18px;">本章：{{ x[0] }}</p><hr>
+        </tr>
+
+            {% for i in x[1].replace('。', '。.').split('.') %}
+{#            <tr style="margin: 20px; padding: 20px; height: 240px; font-size: 20px;">#}
+            <p style="font-size: 18px;">
+                &nbsp;&nbsp;{{ i }}
+            </p><br>
+{#            </tr>#}
+            {% endfor %}
+        <tr>
+            <p style="font-size: 14px; text-align: center">
+                    本章结束
+                </p>
+        </tr>
+        </tbody>
+    </table>
+<div style="text-align: center; padding-top: 20px; color:#FF0000; padding-bottom: 40px;" >
+    {% if page==1%}
+      <span><a href="/yuedu/{{ book_name }}/{{ 1 }}">第一章</a></span>
+      <span title="当前页">当前章节：{{ page }}</span>
+      <span><a href="/yuedu/{{ book_name }}/{{ page+1 }}">下一章</a></span>
+      <span><a href="/yuedu/{{ book_name }}/{{ page_num }}">最后一章</a></span>
+      <span>总章数：{{ page_num }}</span>
+    {% else %}
+      <span><a href="/yuedu/{{ book_name }}/{{ 1 }}">第一章</a></span>
+      <span title="当前页">当前章节：{{ page }}</span>
+      <span title="上一页"><a href="/yuedu/{{ book_name }}/{{ page-1 }}">上一章</a></span>
+      <span><a href="/yuedu/{{ book_name }}/{{ page+1 }}">下一章</a></span>
+      <span><a href="/yuedu/{{ book_name }}/{{ page_num }}">最后一章</a></span>
+      <span>总章数：{{ page_num }}</span>
+    {% endif %}
+</div>
+</div>
+
+<div class="bottom" style="text-align: center; height: 100px; background-color: #5e5e5e;padding-top: 5px; border: 0px;">
+<p style="font-size: 20px;">
+    本站仅作学习使用 内容来源网络 与本人无关 若侵权请联系删除
+</p>
+<p style="font-size: 20px;">
+    邮箱：xiaomu041@Gmail.com
+</p>
+</div>
+    </div>
+{% endblock %}

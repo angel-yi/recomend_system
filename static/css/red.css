@@ -1,0 +1,168 @@
+/* input定义 */
+.button_tb { border:1px solid #FFFFFF;height:22px;background-image: url(title_03.jpg);font-size:12px;color:#FFFFFF;padding-top:2px;text-align:center;}
+
+.input_a { border:1px #A9A9A9 solid;background-color:#FFFFFF;font-size:12px;color:#000000;}
+.input_b { border:1px #A9A9A9 solid;background-color:#A9A9A9;font-size:12px;color:#000000;}
+/* tr 背景判断定义 */
+.z_tr_hui{ background-color: #f2f2f2; }
+.z_tr_fen{ background-color: #fceeee; }
+.z_tr_hui_top td{border-top-width:3px; border-top-style:solid; border-top-color:#CCCCCC;}
+.z_tr_fen_top td{border-top-width:3px; border-top-style:solid; border-top-color:#CCCCCC;}
+.z_tr_hui_bottom td{border-bottom-width:3px; border-bottom-style:solid; border-bottom-color:#CCCCCC;}
+.z_tr_fen_bottom td{border-bottom-width:3px; border-bottom-style:solid; border-bottom-color:#CCCCCC;}
+.tdbckno_top td { border-top-width:1px;border-style:solid; }
+.tdbckno_bottom td { border-bottom-width:1px;border-style:solid; }
+
+.z_bg_01 { background-image:url(top_01.jpg);background-repeat: repeat-x;}
+.z_bg_02 { background-image:url(top_01.jpg);background-repeat: repeat-x;font-family:黑体;font-size:18px;color:#BA0001;padding-left:8px;padding-top:10px;}
+.z_bg_03_1 { font-size:12px; color:#408080; text-align:center; background-image: url(title_01.jpg); }
+.z_bg_03_2 { font-size:12px; color:#408080; text-align:center; background-image: url(title_02.jpg); }
+
+.z_bg_03 { font-size:17px; color:#408080; text-align:center;background-color:#F0E68C;}
+
+.z_bg_04 { font-size:12px; color:#408080; text-align:center; background-image: url(title_03.jpg); font-weight:bold;}
+.z_bg_05 { font-size:12px;color:#000000;text-align:center;}
+.z_bg_06 { background-color:#fff0d9; font-size:12px;color:#A8A8A8;text-align:center;}
+.z_bg_06_5 { background-color:#f8d59f;font-size:12px;color:#A8A8A8;text-align:center;}
+.z_bg_06_10 { background-color:#f8ba5a;font-size:12px;color:#A8A8A8;text-align:center;}
+.z_bg_07 { background-color:#d3eeff;font-size:12px;color:#C4C4C4;text-align:center;}
+.z_bg_08 { background-color:#AB0002;font-size:12px;color:#FFFFFF;text-align:center;}
+/* 整体大小背景万百个背景色定义 */
+.z_bg_09 { background-color:#BCD2EE;font-size:17px;color:#666666;text-align:center;}
+
+.z_bg_wbg{font-size:14px; text-align:center;background-color:#FFFFBB;}
+
+.z_bg_qs{font-size:14px; color:#408080; text-align:center;background-color:#CCEEFF;}
+
+
+.z_bg_10 { background-color:#E3E3E3;font-size:12px;color:#666666;text-align:center;}
+.z_bg_11 { background-color:#EBF5F5;font-size:12px;color:#C4C4C4;text-align:center;}
+.z_bg_12 { background-color:#AB0002;font-size:12px;color:#FFFFFF;text-align:center;}
+.z_bg_13 { background-color:#FFFFFF;font-size:12px;color:#000000;text-align:center;}
+.z_bg_14 { background-color:#FFEEEE;font-size:12px;color:#A8A8A8;text-align:center;}
+
+.z_bg_14_5 { background-color:#f8d59f;font-size:12px;color:#A8A8A8;text-align:center;}
+
+.z_bg_14_10 { background-color:#f8ba5a;font-size:12px;color:#A8A8A8;text-align:center;}
+.z_bg_15 { background-color:#fff0d9;font-size:12px;color:#C4C4C4;text-align:center;}
+.z_bg_16 { font-size:12px;color:#FFFFFF;text-align:center;background-image: url(title_04.jpg);}
+.z_bg_17 { background-color:#FCE0FC;font-size:12px;color:#C4C4C4;text-align:center;}
+.z_bg_17_5 { background-color:#f8b0f8;font-size:12px;color:#C4C4C4;text-align:center;}
+.z_bg_17_10 { background-color:#f756f7;font-size:12px;color:#C4C4C4;text-align:center;}
+.z_bg_18 { font-size:12px; color:#C4C4C4; text-align:center;background-color:#F0FAFF;}
+.z_bg_18_5 { font-size:12px; color:#C4C4C4; text-align:center;background-color:#bee5f9;}
+.z_bg_18_10 { font-size:12px; color:#C4C4C4; text-align:center;background-color:#45bcf8;}
+.z_bg_19 { background-image:url(z_bg_orange.jpg);background-repeat: repeat-x;border-bottom:1px solid #ab0003;font-size:12px;color:#AB0002;padding-top:10px;}
+.z_bg_20 { background-color:#AB0002;font-size:12px;color:#FFFFFF;text-align:center;width:60px;}
+.z_bg_21 { background-color:#E3E3E3;font-size:12px;color:#666666;text-align:center;width:5px;}
+.z_bg_22 { font-size:12px;color:#FFFFFF;text-align:center;background-image: url(title_02.jpg);}
+.z_bg_23 { background-color:#FCE0FC; font-size:12px;color:#349800;text-align:center;}
+.z_bg_24 { background-color:#F0FAFF; font-size:12px;color:#FE6400;text-align:center;}
+.z_bg_25 { background-color:#fff0d9; font-size:12px;color:#349800;text-align:center;}
+.SelectHtml1 { background-color:#E3E3E3;font-size:12px;color:#E3E3E3;text-align:center;}
+.SelectHtml1_blue { background-color:#E3E3E3;font-size:12px;color:#E3E3E3;text-align:center;}
+.SelectHtml1_yellow { background-color:#E3E3E3;font-size:12px;color:#E3E3E3;text-align:center;}
+.SelectHtml1_red { background-color:#E3E3E3;font-size:12px;color:#E3E3E3;text-align:center;}
+.SelectHtml1_disabled { background-color:#E3E3F5;font-size:12px;color:#E3E3F5;text-align:center;}
+.SelectHtml2 { background-color:#E3E3E3;font-size:12px;color:#000000;text-align:center;}
+
+.z_font_green { font-size:14px;color:#ffffff;background-color:#0000FF;}
+
+.z_font_orange { font-size:14px;color:#ffffff;background-color:#FF0000;}
+
+.z_font_red { background:#fff0d9 url(../z_bg_001.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_red_blue { background:#F0FAFF url(../z_bg_001.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_red_5 { background:#f8d59f url(../z_bg_001.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_red_10 { background:#f8ba5a url(../z_bg_001.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_red_blue_5 { background:#bee5f9 url(../z_bg_001.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_red_blue_10 { background:#45bcf8 url(../z_bg_001.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_hs_red { background:#fff0d9 url(../z_bg_001.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_hs_blue { background:#E3E3E3 url(../z_bg_004.gif) no-repeat;background-position:center;font-size:12px;color:#000000;font-weight:bold;text-align:center;}
+.z_font_hs_orange { background:#E3E3E3 url(../z_bg_002.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+
+.z_font_cs { background:#FDDFE6 url(z_bg_002.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_cs { background:#FDDFE6 url(z_bg_002.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_cs_2 { background:#fff0d9 url(z_bg_002.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_cs_2_blue { background:#F0FAFF url(z_bg_002.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_cs_2_5 { background:#f8d59f url(z_bg_002.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_cs_2_blue_5 { background:#bee5f9 url(z_bg_002.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_cs_2_10 { background:#f8ba5a url(z_bg_002.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_cs_2_blue_10 { background:#45bcf8 url(z_bg_002.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_hs { background:#fff0d9 url(z_bg_003.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_hs_blue { background:#F0FAFF url(z_bg_003.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_hs_5 { background:#f8d59f url(z_bg_003.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_hs_blue_5 { background:#bee5f9 url(z_bg_003.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_hs_10 { background:#f8ba5a url(z_bg_003.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_hs_blue_10 { background:#45bcf8 url(z_bg_003.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_ls { background:#EBF5F5 url(z_bg_004.gif) no-repeat;background-position:center;font-size:12px;color:#000000;font-weight:bold;text-align:center;}
+.z_font_ls_2 { background:#fff0d9 url(z_bg_004.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_ls_2_blue { background:#F0FAFF url(z_bg_004.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_ls_2_5 { background:#f8d59f url(z_bg_004.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_ls_2_blue_5 { background:#bee5f9 url(z_bg_004.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_ls_2_10 { background:#f8ba5a url(z_bg_004.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_ls_2_blue_10 { background:#45bcf8 url(z_bg_004.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_black { font-size:12px;color:#000000;padding-top:4px;}
+.z_font_bt { font-size:12px;color:#AB0002;font-weight:bold;}
+.z_set { border:1px solid #AB0002;padding-left:10px;padding-bottom:3px;}
+
+/* 竖连样式 */
+.z_font_ligtred { background:#fff0d9 url(red_shulian.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_ligtred_blue { background:#F0FAFF url(red_shulian.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_ligtred_blue_5 { background:#bee5f9 url(red_shulian.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+.z_font_ligtred_blue_10 { background:#45bcf8 url(red_shulian.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+/* 斜连样式 */
+.z_font_purple { background:#fff0d9 url(red_xielian.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+/* 奇数斜连样式 */
+.z_font_darkblue { background:#fff0d9 url(red_jishuxielian.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;} 
+/* 偶数斜连样式 */
+.z_font_evendarkblue { background:#fff0d9 url(red_oushuxielian.gif) no-repeat;background-position:center;font-size:12px;color:#FFFFFF;font-weight:bold;text-align:center;}
+ 
+/* 白色链接样式 */
+a.bs_a:link { color:#FFFFFF; text-decoration:none;}
+a.bs_a:visited { color:#FFFFFF; text-decoration:none;}
+a.bs_a:hover { color:#8B0001; text-decoration:underline;}
+a.bs_a:active{ color:#8B0001; text-decoration:underline;}
+
+/* 红色加下划线链接样式 */
+a.Red:link { color:#AB0002; text-decoration:underline;}
+a.Red:visited { color:#AB0002; text-decoration:none;}
+a.Red:hover { color:#FD5300; text-decoration:underline;}
+a.Red:active{ color:#FD5300; text-decoration:underline;}
+
+/* 灰色字体链接样式 */
+a.hsz:link { color:#545454; text-decoration:none;}
+a.hsz:visited { color:#545454; text-decoration:none;}
+a.hsz:hover { color:#FF4B01; text-decoration:underline;}
+a.hsz:active{ color:#FF4B01; text-decoration:underline;}
+
+.Url{text-align:center;font-size:12px;}
+
+.ReadMe{text-align:left;font-size:12px;}  
+
+.HighSelectTable{ background-color:#ffffff;border:1px solid #ab0003; width:400px; height:120px;}
+.WhiteBack{font-size:12px;text-align:center;}
+.RedFont{color:#FF0000;}
+.BlueFont{color:#0000FF;}
+.GreenFont{color:#008000;}
+.WhiteFont{color:White;}
+.BlackFont{color:Black;}
+.RedBack{background-color:Red;}
+.BlueBack{background-color:Blue;}
+.GreenBack{background-color:Green;}
+.GoldBack{background-color:Yellow;}
+.MaroonBack{background-color:Maroon;}   
+
+/*
+鼠标点击行背景色
+* */
+.backChange{ background-color: #EDFFC8; }
+
+/*模拟选号*/
+.q_red { background-image: url(z_bg_001.gif); background-repeat: no-repeat; color: #FFFFFF;width: 20px; background-position:center}
+.q_blue { background-image: url(z_bg_004.gif); background-repeat: no-repeat; color: #FFFFFF; width: 20px; background-position:center}
+.q_yellow { background-image: url(z_bg_002.gif); background-repeat: no-repeat; color: #FFFFFF; width: 20px; background-position:center}
+
+
+.z_bg_06_haoma { background-color:#fff0d9; font-size:12px;text-align:center;}
+.z_bg_17_haoma { background-color:#FCE0FC;font-size:12px;text-align:center;}
+.z_bg_18_haoma { font-size:12px; text-align:center;background-color:#F0FAFF;}

@@ -1,0 +1,127 @@
+{% extends "back_base.html" %}
+
+{% block content %}
+{{ super() }}
+    <div class="row">
+        <div class="col-md-3" style="width: 20%; height: 600px; margin-top: 10px;
+            text-align: center; border-radius: 20px; margin-left: 30px; color: black">
+            <a href="/background/management/system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #bee5f9; border-radius: 20px; font-size: 20px; color: black">快捷菜单 ⬇⬇⬇</div></a>
+            <a href="/class_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #DAC804; border-radius: 20px; font-size: 20px; color: black">分类管理</div></a>
+            <a href="/background_author_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #00aabb; border-radius: 20px; font-size: 20px; color: black">作者管理</div></a>
+            <a href="book_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #8c8c8c; border-radius: 20px; font-size: 20px; color: black">书籍管理</div></a>
+            <a href="/member_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #c1e2b3; border-radius: 20px; font-size: 20px; color: black">会员管理</div></a>
+            <a href="/publicity_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #ce8483; border-radius: 20px; font-size: 20px; color: black">公告管理</div></a>
+            <a href="/data_system"><div style="height: 14.7%; text-align: center;padding-top: 10%; background-color: #f1ddb8; border-radius: 20px; font-size: 20px; color: black">网站数据</div></a>
+        </div>
+        <div class="col-md-7" style="width: 76%; height: 640px;background-color: #c9e2b3; margin-top: 10px;
+            text-align: center; border-radius: 20px; margin-left: 0px;">
+            <div style="padding-top: 20px;">
+                <p style="font-size: 36px;">
+                    分类管理
+                    <a href="/background_author_system">
+                        <button class="btn btn-info">新增作者查看</button>
+                    </a>
+                    <a href="/report_author_system">
+                        <button class="btn btn-danger">被举报作者查看</button>
+                    </a>
+                </p>
+
+                <hr>
+                <table class="table table-hover" style="">
+                    {% for i in author %}
+                        <tr>
+                            &nbsp;
+                            <td style="text-align: left;text-indent: 1em;">
+                                <div style="background-color: white; height: 70px;padding-top: 23px;color: black;font-size: 18px;">
+{#                                    <span>id： {{ i['id'] }}</span>&nbsp;&nbsp;&nbsp;&nbsp;#}
+                                    <span>昵称： </span>
+                                    <a>{{i['username']}}</a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span>账号： {{ i['account'] }}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span>电话： {{ i['tel'] }}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span>邮箱： {{ i['email'] }}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span>认证码： {{ i['code'] }}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+{#                                    <span>#}
+{#                                        <a href="/delete_class/{{ i['book_class'] }}">#}
+{#                                            <img src="/static/images/edit.png" style="width: 30px;height: 30px;">#}
+{#                                        </a>#}
+{#                                        <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_edit{{ i['book_class'] }}"#}
+{#                            data-whatever="{{ i['book_class'] }}">编辑</button>#}
+{#                                        <div class="modal fade" id="myModal_edit{{ i['book_class'] }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">#}
+{#                                          <div class="modal-dialog" role="document">#}
+{#                                            <div class="modal-content">#}
+{#                                              <div class="modal-header">#}
+{#                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#                                                    <span aria-hidden="true">&times;</span></button>#}
+{#                                                  <h4 class="modal-title" id="myModalLabel">编辑分类&nbsp;&nbsp;<span style="color: #DAC804; font-size: 18px;">{{ i['book_class'] }}</span></h4>#}
+{#                                              </div>#}
+{#                                                <form method="post" action="/edit_class">#}
+{#                                                  <div class="modal-body">#}
+{#                                                      <label>新名称：</label>#}
+{#                                                      <input type="text" name="new_book_class" value="{{ i['book_class'] }}">#}
+{#                                                  </div>#}
+{#                                                  <div class="modal-footer">#}
+{#                                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>#}
+{#                                                    <button type="submit" class="btn btn-primary">确认</button>#}
+{#                                                  </div>#}
+{#                                                </form>#}
+{#                                            </div>#}
+{#                                          </div>#}
+{#                                        </div>#}
+{#                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#                                        <a href="/edit_class/{{ i['book_class'] }}">#}
+{#                                            <img src="/static/images/delete.png" style="width: 25px;height: 25px;">#}
+{#                                        </a>#}
+{#                                        <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_delete{{ i['book_class'] }}"#}
+{#                            data-whatever="{{ i['book_class'] }}">删除</button>#}
+{#                                        <div class="modal fade" id="myModal_delete{{ i['book_class'] }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">#}
+{#                                          <div class="modal-dialog" role="document">#}
+{#                                            <div class="modal-content">#}
+{#                                              <div class="modal-header">#}
+{#                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#                                                    <span aria-hidden="true">&times;</span></button>#}
+{#                                                  <h4 class="modal-title" id="myModalLabel">删除分类&nbsp;&nbsp;<span style="color: #DAC804; font-size: 18px;">{{ i['book_class'] }}</span></h4>#}
+{#                                              </div>#}
+{#                                                <form method="post" action="/delete_class">#}
+{#                                                  <div class="modal-body">#}
+{#                                                      <label>确认删除 {{ i['book_class'] }} 吗？</label>#}
+{#                                                      <input type="hidden" name="new_book_class" value="{{ i['book_class'] }}">#}
+{#                                                  </div>#}
+{#                                                  <div class="modal-footer">#}
+{#                                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>#}
+{#                                                    <button type="submit" class="btn btn-primary">确认</button>#}
+{#                                                  </div>#}
+{#                                                </form>#}
+{#                                            </div>#}
+{#                                          </div>#}
+{#                                        </div>#}
+{#                                    </span>#}
+{#                                    <span style="font-size: 13px;color: #f59c00">？注：您可以对分类进行编辑或者删除，编辑后数据库中图书分类做相应修改</span>#}
+                                    </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+            </div>
+{#            <div style="text-align: center; padding-top: 20px; color:#FF0000; padding-bottom: 40px;" >#}
+{#                {% if page==1%}#}
+{#                  <span style="font-size: 16px;"><a href="/class_system">首页</a></span>#}
+{#                  <span style="font-size: 16px;">当前页：{{ page }}</span>#}
+{#                  <span style="font-size: 16px;"><a href="/class_system/{{ page + 1 }}">下一页</a></span>#}
+{#                  <span style="font-size: 16px;"><a href="/class_system/{{ page_num }}">尾页</a></span>#}
+{#                  <span style="font-size: 16px;">总页数：{{ page_num + 1 }}</span>#}
+{#                {% else %}#}
+{#                  <span style="font-size: 16px;"><a href="/class_system">首页</a></span>#}
+{#                  <span style="font-size: 16px;">当前页：{{ page }}</span>#}
+{#                  <span style="font-size: 16px;"><a href="/class_system/{{ page - 1 }}">上一页</a></span>#}
+{#                  <span style="font-size: 16px;"><a href="/class_system/{{ page + 1 }}">下一页</a></span>#}
+{#                  <span style="font-size: 16px;"><a href="/class_system/{{ page_num }}">尾页</a></span>#}
+{#                  <span style="font-size: 16px;">总页数：{{ page_num + 1 }}</span>#}
+{#                {% endif %}#}
+{#            </div>#}
+        </div>
+    </div>
+
+{% endblock %}

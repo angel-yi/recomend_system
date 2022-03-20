@@ -1,0 +1,29 @@
+/*首页样式*/
+#title{
+    background-color: beige;
+    top: 0;
+    z-index: 9999;
+    position: fixed ! important;
+    width: 100%;
+}
+
+#title div{
+    font-size: 6rem;
+}
+
+#null div{
+    height: 100px;
+}
+
+#title_row{
+    margin-top: 10px;
+    background-color: #9d9d9d;
+    height: 100px;
+}
+#text_left p{
+    font-size: 4rem
+}
+#text_right p{
+     font-size: 3rem; line-height:100px
+}
+

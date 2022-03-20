@@ -1,0 +1,724 @@
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+img,object form input {
+    border: 0px;
+}
+
+div,dl,dt,dd,ol,ul,b,li {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+A:link {
+    COLOR: #000000;
+    text-decoration: none;
+}
+
+A:visited {
+    COLOR: #000000;
+    text-decoration: none;
+}
+
+A:hover {
+    COLOR: #FF0000;
+    text-decoration: none;
+}
+
+A:active {
+    COLOR: #FF0000;
+    text-decoration: none;
+}
+
+.head {
+    background: #fff094;
+}
+
+.titlehead {
+    color: #FFFFFF;
+    background: url(../images/head.gif) #ffffff repeat-x;
+    text-align: center;
+}
+
+.titlehead2 {
+    background: url(../images/head2.gif) #ffffff repeat-x;
+}
+
+.titleColor {
+    background: #fdeeeb;
+}
+
+.fontColor {
+    color: #ffffff;
+    font-family: Arial;
+    font-weight: 900;
+}
+
+td {
+    font-size: 12px;
+    font-family: "宋体";
+    margin: 0px;
+}
+
+.white {
+    background: #ffffff;
+}
+
+.white2 {
+    background: #fdeeeb;
+}
+
+.yellow {
+    background: #FFFFFF;
+}
+
+.yellow2 {
+    background: #fdeeeb;
+}
+
+.whiteWord {
+    color: #cccccc;
+}
+
+.ch_background_hongse {
+    background: #fdeeeb url(../images/ch_back.gif) no-repeat;
+    background-position: center;
+    color: #ffffff;
+    font-family: Arial;
+}
+
+.ch_background_hongse2 {
+    color: #cccccc;
+    background: #fdeeeb;
+}
+
+.background_hongse {
+    background: #fdeeeb url(../images/redback.gif) no-repeat;
+    background-position: center;
+    color: #ffffff;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.ch_background_white {
+    background: #FFFFFF url(../images/ch_back.gif) no-repeat;
+    background-position: center;
+    color: #ffffff;
+    font-family: Arial;
+}
+
+.ch_background_white2 {
+    background: #fdeeeb url(../images/ch_back.gif) no-repeat;
+    background-position: center;
+    color: #ffffff;
+    font-family: Arial;
+}
+
+.ch_background_red {
+    background: #FFFFFF url(../images/ch_back_red.gif) no-repeat;
+    background-position: center;
+    color: #ffffff;
+    font-family: Arial;
+}
+
+.ch_background_red2 {
+    background: #fdeeeb url(../images/ch_back_red.gif) no-repeat;
+    background-position: center;
+    color: #ffffff;
+    font-family: Arial;
+}
+
+.hz_background_white {
+    background: #FEFAEB url(../images/hzback.gif) no-repeat;
+    background-position: center;
+    color: #FFFFFF;
+    font-family: Arial;
+    font-weight: 900;
+}
+
+.hz_background_yellow {
+    background: #FFFFFF url(../images/hzback1.gif) no-repeat;
+    background-position: center;
+    color: #FFFFFF;
+    font-family: Arial;
+    font-weight: 900;
+}
+
+.JQZS_white {
+    background: #FFFFFF url(../images/redback.gif) no-repeat;
+    background-position: center;
+    color: #ffffff;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.JQZS_yellow {
+    background: #FEFAEB url(../images/blueback.gif) no-repeat;
+    background-position: center;
+    color: #ffffff;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.background_white {
+    background: #ffffff url(../images/redback.gif) no-repeat;
+    background-position: center;
+    color: #ffffff;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.background_white2 {
+    background: #fdeeeb url(../images/hzback1.gif) no-repeat;
+    background-position: center;
+    color: #ffffff;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.background_yellow {
+    background: #FFFFFF url(../images/blueback.gif) no-repeat;
+    color: #ffffff;
+    background-position: center;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.enfont {
+    font-family: Arial;
+}
+
+.red {
+    color: #ff0000;
+}
+
+.fb_background {
+    background: #ffffff;
+}
+
+.fb_box {
+    height: 15px;
+    margin: 0px;
+    width: 16px;
+    background: #FFF094;
+    padding-top: 1px;
+    font-weight: bold;
+}
+
+.hui_color {
+    color: #999999;
+}
+
+.selectNum {
+    font-size: 12px;
+    font-family: Arial;
+    height: 20px;
+    width: 16px;
+    margin: 0px;
+    padding-top: 3px;
+    background: #FF0000;
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.selectNumblue {
+    background: url(../images/blueback.gif) no-repeat;
+    color: #ffffff;
+    background-position: center;
+    font-family: Arial;
+    font-weight: bold;
+    height: 25px;
+    margin: 0px;
+    padding: 4px;
+}
+
+.selectNumred {
+    background: url(../images/redback.gif) no-repea;
+    color: #ffffff;
+    background-position: center;
+    font-family: Arial;
+    font-weight: bold;
+    height: 25px;
+    margin: 0px;
+    padding: 4px;
+}
+
+.selectNumkong {
+    background: url(../images/ch_back.gif) no-repea;
+    color: #000000;
+    background-position: center;
+    font-family: Arial;
+    font-weight: bold;
+    height: 25px;
+    margin: 0px;
+    padding-top: 5px;
+}
+
+.selectZh {
+    width: 40px;
+    height: 16px;
+    margin: 0px;
+    background: #9999BB;
+    color: #ffffff;
+    padding-top: 2px;
+}
+
+.selectNumHZ {
+    background-image: url(../images/hzback.gif);
+    background-repeat: no-repeat;
+    padding-top: 4px;
+    margin-top: 0px;
+    width: 90%;
+    height: 90%;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.dx_background {
+    width: 40px;
+    height: 16px;
+    margin: 0px;
+    background: #C46A00;
+    color: #ffffff;
+    padding-top: 2px;
+}
+
+.jo_background {
+    width: 40px;
+    height: 16px;
+    margin: 0px;
+    background: #2A03AB;
+    color: #ffffff;
+    padding-top: 2px;
+}
+
+.225_background {
+    background-color: #FEFAEB;
+    background-image: url(../images/hzback.gif);
+    background-repeat: no-repeat;
+    color: #ffffff;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.zh_background {
+    width: 40px;
+    height: 16px;
+    margin: 0px;
+    background: #9999BB;
+    color: #ffffff;
+    padding-top: 2px;
+}
+
+.selectNumDX {
+    width: 42px;
+    height: 23px;
+    margin: 0px;
+    background: #ff0000;
+    color: #ffffff;
+    padding-top: 4px;
+}
+
+.selectNumDXhe {
+    width: 40px;
+    height: 16px;
+    margin: 0px;
+    background: #C46A00;
+    color: #ffffff;
+    padding-top: 2px;
+}
+
+.selectNumDXblue {
+    width: 40px;
+    height: 16px;
+    margin: 0px;
+    background: #2A03AB;
+    color: #ffffff;
+    padding-top: 4px;
+}
+
+.selectNum012 {
+    width: 23px;
+    height: 14px;
+    margin: 0px;
+    padding: 0px;
+    background: #C46A00;
+    color: #ffffff;
+    padding-top: 1px;
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.sd_012 {
+    width: 23px;
+    height: 14px;
+    margin: 0px;
+    padding: 0px;
+    background: #C46A00;
+    color: #ffffff;
+}
+
+.z36 {
+    color: #0000FF;
+    font-size: 14px;
+}
+
+.selectz36 {
+    color: #cccccc;
+    font-size: 14px;
+}
+
+/*统计数据的小字体*/
+.small_font {
+    font-size: 10px;
+    -webkit-text-size-adjust: none;
+}
+
+#td_35 td {
+    height: 33px;
+    font-family: Arial;
+    text-align: center;
+}
+
+#td_35 .back {
+    background: #FFF094;
+}
+
+#td_35 .backcolor {
+    background: #FFA0A0;
+}
+
+/*模拟选号-按钮*/
+.mn {
+    height: 133px;
+    width: 24px;
+    background-image: url(../imgs/zoushi/mn1.jpg);
+    background-repeat: no-repeat;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    background-color: transparent;
+    position: absolute;
+    top: 700px;
+    left: 0px;
+    cursor: pointer;
+}
+
+.mx_open {
+    background-image: url(../imgs/open.jpg);
+    background-repeat: no-repeat;
+    border: none;
+    width: 119px;
+    height: 25px;
+    background-color: transparent;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.mx_close {
+    background-image: url(../imgs/close.jpg);
+    background-repeat: no-repeat;
+    border: none;
+    width: 119px;
+    height: 25px;
+    background-color: transparent;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+/*走势图—头*/
+/*
+.top_t { height: 136px; background-image:url(../imgs/zoushi/top.jpg); background-repeat:repeat-x; margin-bottom: 5px; }
+*/
+.top_ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 0px;
+}
+
+.top_ul li {
+    width: 140px;
+    float: left;
+}
+
+.zs {
+    padding-left: 5px;
+}
+
+.zs a {
+    margin: 0 2px;
+}
+
+.int1 {
+    height: 16px;
+    width: 83px;
+    margin-right: 3px;
+    margin-left: 3px;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}
+
+.img1 {
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.sp1 {
+    margin-left: 25px;
+}
+
+/*走势图—图表*/
+.tb {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/*
+.tb_table { border: 1px solid #ccc; border-collapse: collapse; font-size: 12px; margin-bottom: 10px; }
+*/
+.tb_table {
+    border: 1px solid #CCCCCC;
+    border-collapse: collapse;
+    font-size: 12px;
+    background-color: #f2f2f2;
+}
+
+.tb_table td {
+    border: 1px solid #CCCCCC;
+    text-align: center;
+    line-height: 20px;
+}
+
+.fff {
+    color: #FFFFFF;
+    background-color: #cc0001;
+}
+
+.fff td {
+    border-color: #FFFFFF;
+    color: #FFF;
+}
+
+.red {
+    color: #ca0002;
+}
+
+.yellow {
+    color: #ff0000;
+}
+
+.blue {
+    color: #597fca;
+}
+
+.a5 {
+    color: #a5a5a5;
+}
+
+.5f {
+    color: #5f70a8;
+}
+
+/*标题-红色背景*/
+.bg1 {
+    background-color: #f9f8fd;
+}
+
+.bg1 img {
+    float: right;
+    margin-right: 2px;
+    margin-top: 7px;
+}
+
+/*浅粉背景*/
+.bg2 {
+    background-color: #faf2f0;
+}
+
+/*篮球下-浅黄背景*/
+.bg3 {
+    background-color: #fcfff4;
+}
+
+/*篮球下-浅蓝色背景*/
+.bg5 {
+    background-color: #f5ffff;
+}
+
+.v_div {
+    position: absolute;
+    background-color: #30F;
+    z-index: 20;
+    margin-left: 70px
+}
+
+/*黄球*/
+.special_orange {
+    color: #FFFFFF;
+    width: 20px;
+}
+
+.special_green {
+    color: #FFFFFF;
+    width: 20px;
+}
+
+/*模拟选号-边框*/
+.bor1 td {
+    border-bottom: 2px solid #6291BB;
+}
+
+.bor2 td {
+    border-top: 2px #86aaca solid;
+}
+
+/*篮球行列分析*/
+.b_fff {
+    color: #FFFFFF;
+    background-color: #316EAF;
+}
+
+.b_fff td {
+    border-color: #FFFFFF;
+}
+
+.lan_font {
+    background: #316EAF;
+    color: #fff;
+}
+
+.lan_right {
+    width: 650px;
+    display: inline;
+    float: left;
+}
+
+.lan_right table {
+    float: left;
+    width: 120px;
+    margin-left: 3px;
+}
+
+.lan_left {
+    width: 300px;
+    float: left;
+    height: auto;
+    margin-left: 3px;
+}
+
+.lbg1 {
+    background: url(../imgs/zoushi/l2.jpg) no-repeat;
+    width: 24px;
+    height: 20px;
+    color: #331F90;
+}
+
+.lbg2 {
+    background: url(../imgs/zoushi/l1.jpg) no-repeat;
+    width: 24px;
+    height: 20px;
+    color: #5F8FBF;
+}
+
+.width_box {
+    width: 960px;
+}
+
+/*表格上方的导航*/
+.bt {
+    line-height: 33px;
+    background-color: #e5e5e5;
+    font-size: 12px;
+    border: 1px solid #c5c5c5;
+    padding: 0 5px;
+    margin: 5px;
+    width: 958px;
+    margin-top: -0px;
+}
+
+.kong {
+    width: 988px;
+    float: left;
+    height: 5px;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    display: block;
+}
+
+.HighSelectDisplay {
+    position: fixed;
+    _position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+    margin-left: -330px;
+}
+
+/*firefox*/
+* html .HighSelectDisplay {
+    position: fixed;
+    _position: absolute;
+    z-index: 1000;
+    margin-top: 70px;
+    margin-left: 10px;
+}
+
+/*ie6*/
+*+html .HighSelectDisplay {
+    position: fixed;
+    _position: absolute;
+    z-index: 1000;
+    margin-top: 70px;
+    margin-left: 10px;
+}
+
+/*ie7*/
+.mx_table {
+    border: 0px solid #ffffff;
+}
+
+.mx_table td {
+    border: 0px solid #ffffff;
+}
+
+.divct {
+    margin: auto;
+    width: 520px;
+}
+
+/*投注悬浮窗口 start*/
+#quick_buyDivId {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    overflow: hidden;
+    _position: absolute;
+    _bottom: auto;
+    _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+    _position: absolute;
+    _bottom: auto;
+    _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+}
+
+/*投注悬浮窗口 end*/
+h1 {
+    font-size: 100%;
+    font-weight: normal;
+    display: inline;
+}

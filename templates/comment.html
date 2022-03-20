@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {{ super() }}
+<table class="cbl" width="20%" border="0" align="left" style="margin-top: 20px; height: 40rem;">
+
+  <tr>
+    <th height="70" scope="row" style="text-align:center; background-color: #8B0001; color: #f8f8f8">今日书籍排行榜</th>
+      <th height="70" scope="row" style="text-align:center; background-color: #8B0001; color: #f8f8f8">阅读量</th>
+  </tr>
+    {% for i in book_paihang %}
+  <tr>
+      <th><a href="/xiangqing/{{ i.book_id }}">
+          {{i.book_name}}
+      </a></th>
+      <th>{{ i.count }}</th>
+  </tr>
+    {% endfor %}
+
+</table>
+
+<table class="cbl" width="20%"  border="0" align="right" style="margin-top: 20px;height: 40rem">
+
+  <tr>
+    <th height="70" scope="row" style="text-align:center; background-color: #1b6d85; color: #f8f8f8">今日读者排行榜</th>
+      <th height="70" scope="row" style="text-align:center; background-color: #1b6d85; color: #f8f8f8">阅读量</th>
+  </tr>
+  {% for i in user_paihang %}
+  <tr>
+      <th>
+          {{i.username}}
+      </th>
+      <th>{{ i.count }}</th>
+  </tr>
+    {% endfor %}
+
+</table>
+
+
+<div class="container" align="center" style="padding-top: 20px; width: 60%; border-radius:5px">
+    <table border="0px;" style="border-radius:20px">
+        <tr style="height: 80px; width: 60%; text-align: center">
+            <td height="300px;" width="300px;" style="padding: 10px;" colspan="2"><img src="{{ book.book_img }}" width="200px;" height="270px;" style="border-radius: 20px;"></td>
+            <td height="400px;" width="200px;" style="padding: 10px;">书名：《{{ book.book_name }}》<br><br>
+                作者：{{ book.book_author }}<br><br>
+                <a href="/fenlei/{{ book.book_class }}">
+                    <input class="btn-danger" type="text" readonly value="{{ book.book_class }}" style="width: 90px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+                </a>
+            </td>
+            <td colspan="2" height="400px;" width="350px;" style="padding: 10px;">
+                <p style="text-align: center; font-size: 20px;">
+                    简介
+                </p>
+                <p style="font-size: 14px; text-align: left">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ book.book_abstract.replace('&nbsp', '').replace(';','') }}
+                </p><br>
+                <a href="/yuedu/{{ book.book_name }}">
+                    <input class="btn btn-info" value="在线阅读" readonly></input>
+                </a>
+            </td>
+{#            <td>123</td>#}
+        </tr>
+        <tr style="height: 80px; width: 60%; text-align: center">
+            <td>
+                <a href="/shoucang/{{ book.id }}">
+                <input class="btn btn-info" style="width: 100px;" value="收藏量&nbsp;&nbsp;{{ collection }}" readonly></input>
+                </a>
+                {% for message in get_flashed_messages() %}
+        {{ message }}
+  {% endfor %}
+            </td>
+            <td>
+                <a>
+                    <input class="btn btn-info" style="width: 100px;" value="点赞量&nbsp;&nbsp;{{ like }}" readonly></input>
+                </a>
+
+            </td>
+
+            <td>
+                <a>
+                    <input class="btn btn-info" style="width: 100px;" value="浏览量&nbsp;&nbsp;{{ history }}" readonly></input>
+                </a>
+
+            </td>
+            <td>
+                <a>
+                    <input class="btn btn-info" style="width: 100px;" value="评论量&nbsp;&nbsp;{{ comment }}" readonly></input>
+                </a>
+
+            </td>
+            <td>
+                <a href="/comment/{{ book.id }}">
+                    <input class="btn btn-info" style="width: 100px;" value="去评论" readonly></input>
+                </a>
+            </td>
+        </tr>
+        {% if session.get('username') %}
+            <table border="0px;" style="border-radius:20px; margin-top: 20px;">
+
+                <tr style="height: 80px; width: 900px; text-align: center">
+                    <th>
+                        <form method="post" action="/comment/tj/{{ book.id }}">
+                            <input type="text" name="comment" style="width: 250px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;" required placeholder="输入内容">
+                            <input type="submit" value="提交" style="width: 100px; text-align: center;" class="btn btn-primary">
+                        </form>
+                    </th>
+        {#            <td>123</td>#}
+                </tr>
+
+
+        {% else %}
+            <table border="0px;" style="border-radius:20px; margin-top: 20px; width: 60%;">
+            <tr style="height: 50px; width: 900px; text-align: center; background-color: #2e6da4; color: #EDFFC8;">
+                <td colspan="6">您处于未登录状态 请先<a href="/reg">注册</a>或<a href="/login">登录</a></td>
+            </tr>
+
+        {% endif %}
+        </table>
+{#    <table border="1px;" style="border-radius:20px; margin-top: 20px;">#}
+{#        <tr style="text-align: center">#}
+{#            <td colspan="5">为您推荐</td>#}
+{#        </tr>#}
+{##}
+{#        <tr style="height: 80px; width: 900px; text-align: center">#}
+{#            <td>123</td>#}
+{#            <td>123</td>#}
+{#            <td>123</td>#}
+{#            <td>123</td>#}
+{#            <td>123</td>#}
+{##}
+{#        </tr>#}
+{#    <div style="text-align: center; padding-left: 309px; padding-top: 30px;" align="center">#}
+        </table></table></div>
+
+<div class="container" align="center" style="text-align: center; width: 95%">
+    <table border="0px;" style="border-radius:20px; margin-top: 20px; width: 100%;">
+        <tr style="height: 50px;">
+            <th colspan="5"><p style="font-size: 25px;">根据本书特征为您推荐</p></th>
+        </tr>
+        <tr style="height: 270px;">
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ data[0].id }}"><img src="{{ data[0].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ data[0].book_name }}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ data[1].id }}"><img src="{{ data[1].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ data[1].book_name }}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ data[2].id }}"><img src="{{ data[2].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ data[2].book_name }}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ data[3].id }}"><img src="{{ data[3].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ data[3].book_name }}</p></a></th>
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ data[4].id }}"><img src="{{ data[4].book_img }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ data[4].book_name }}</p></a></th>
+
+{#            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[2].id }}"><img src="{{ zuire[2].book_img }}" width="170px;" height="220px;"></img><br>#}
+{#                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[2].book_name}}</p></a></th>#}
+{#            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[3].id }}"><img src="{{ zuire[3].book_img }}" width="170px;" height="220px;"></img><br>#}
+{#                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[3].book_name}}</p></a></th>#}
+{#            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[4].id }}"><img src="{{ zuire[4].book_img }}" width="170px;" height="220px;"></img><br>#}
+{#                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[4].book_name}}</p></a></th>#}
+        </tr>
+{#        <tr style="height: 270px;">#}
+{#            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[5].id }}"><img src="{{ zuire[5].book_img }}" width="170px;" height="220px;"></img><br>#}
+{#                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[5].book_name}}</p></a></th>#}
+{#            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[6].id }}"><img src="{{ zuire[6].book_img }}" width="170px;" height="220px;"></img><br>#}
+{#                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[6].book_name}}</p></a></th>#}
+{#            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[7].id }}"><img src="{{ zuire[7].book_img }}" width="170px;" height="220px;"></img><br>#}
+{#                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[7].book_name}}</p></a></th>#}
+{#            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[8].id }}"><img src="{{ zuire[8].book_img }}" width="170px;" height="220px;"></img><br>#}
+{#                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[8].book_name}}</p></a></th>#}
+{#            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ zuire[9].id }}"><img src="{{ zuire[9].book_img }}" width="170px;" height="220px;"></img><br>#}
+{#                <p style="font-family: Harrington; font-size: 14px;">{{ zuire[9].book_name}}</p></a></th>#}
+{#        </tr>#}
+    </table>
+{#</div>#}
+</div>
+
+<div class="bottom" style="text-align: center; height: 100px; background-color: #5e5e5e;padding-top: 5px; border: 0px;">
+<p style="font-size: 20px;">
+    本站仅作学习使用 内容来源网络 与本人无关 若侵权请联系删除
+</p>
+<p style="font-size: 20px;">
+    邮箱：xiaomu041@Gmail.com
+</p>
+</div>
+{% endblock %}

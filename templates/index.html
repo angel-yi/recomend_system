@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ super() }}
+
+<table class="cbl" width="20%" border="0" align="left" style="margin-top: 20px; height: 40rem;">
+
+    <tr>
+        <th height="70" scope="row" style="text-align:center; background-color: #8B0001; color: #f8f8f8">书籍排行榜</th>
+        <th height="70" scope="row" style="text-align:center; background-color: #8B0001; color: #f8f8f8">阅读量</th>
+    </tr>
+    {% for i in book_paihang %}
+    <tr>
+        <th><a href="/xiangqing/{{ i.book_id }}">
+            {{i.book_name}}
+        </a></th>
+        <th>{{ i.count }}</th>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<table class="cbl" width="20%"  border="0" align="right" style="margin-top: 20px;height: 40rem">
+
+    <tr>
+        <th height="70" scope="row" style="text-align:center; background-color: #1b6d85; color: #f8f8f8">读者排行榜</th>
+        <th height="70" scope="row" style="text-align:center; background-color: #1b6d85; color: #f8f8f8">阅读量</th>
+    </tr>
+    {% for i in user_paihang %}
+    <tr>
+        <th>
+            {{i.username}}
+        </th>
+        <th>{{ i.count }}</th>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<div id="carousel-example-generic" class="carousel slide container" data-ride="carousel" style="width: 60%;height: 40rem; text-align: center; padding-top: 20px;">
+    <!-- 指示器 -->
+    <ol class="carousel-indicators" style="padding-top: 30px;">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+    <!-- 轮播图片及说明文字 -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="/static/images/0001.png" style="width: 900px;height: 400px;" alt="图片1">
+        </div>
+        <div class="item">
+            <img src="/static/images/0010.png" style="width: 900px;height: 400px;" alt="图片2">
+        </div>
+        <div class="item">
+            <img src="/static/images/0011.png" style="width: 900px;height: 400px;" alt="图片3">
+        </div>
+    </div>
+    <!-- 控制按钮：左右切换 -->
+    {#        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">#}
+    {#          <span class="glyphicon glyphicon-chevron-left"></span>#}
+    {#        </a>#}
+    {#        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">#}
+    {#          <span class="glyphicon glyphicon-chevron-right"></span>#}
+    {#        </a>#}
+</div>
+
+<div style="text-align: center; padding-top: 3rem; width: 95%" align="center" class="container">
+    <table style="text-align: center; border-color: #0000FF; width: 100%; text-align: center; " border="0rem;">
+        <tr style="height: 50px;">
+            <th colspan="5"><p style="font-size: 25px;">当前热门中国文学</p></th>
+        </tr>
+        <tr style="height: 270px;">
+            {% for i in zuire[0:5] %}
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ i['id'] }}">
+                <img src="{{ i['book_img'] }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ i['book_name'] }}</p></a>
+            </th>
+            {% endfor %}
+        </tr>
+        <tr style="height: 270px;">
+            {% for i in zuire[5:10] %}
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ i['id'] }}">
+                <img src="{{ i['book_img'] }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ i['book_name'] }}</p></a>
+            </th>
+            {% endfor %}
+        </tr>
+    </table>
+    {#</div>#}
+{#<div style="text-align: center; padding-left: 309px; padding-top: 30px; " align="center">#}
+    <table style="text-align: center; border-color: #0000FF; width: 100%; text-align: center" border="0px;">
+        <tr style="height: 50px;">
+            <th colspan="5"><p style="font-size: 25px;">当前热门励志文学</p></th>
+        </tr>
+        <tr style="height: 270px;">
+            {% for i in xiaoshuo[0:5] %}
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ i['id'] }}">
+                <img src="{{ i['book_img'] }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ i['book_name'] }}</p></a>
+            </th>
+            {% endfor %}
+        </tr>
+        <tr style="height: 270px;">
+            {% for i in xiaoshuo[5:10] %}
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ i['id'] }}">
+                <img src="{{ i['book_img'] }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ i['book_name'] }}</p></a>
+            </th>
+            {% endfor %}
+        </tr>
+    </table>
+    {#</div>#}
+{##}
+{#<div style="text-align: center; padding-left: 309px; padding-top: 30px; " align="center">#}
+    <table style="text-align: center; border-color: #0000FF; width: 100%; text-align: center" border="0px;">
+        <tr style="height: 50px;">
+            <th colspan="5"><p style="font-size: 25px;">当前热门互联网文学</p></th>
+        </tr>
+        <tr style="height: 270px;">
+            {% for i in manhua[0:5] %}
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ i['id'] }}">
+                <img src="{{ i['book_img'] }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ i['book_name'] }}</p></a>
+            </th>
+            {% endfor %}
+        </tr>
+        <tr style="height: 270px;">
+            {% for i in manhua[5:10] %}
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ i['id'] }}">
+                <img src="{{ i['book_img'] }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ i['book_name'] }}</p></a>
+            </th>
+            {% endfor %}
+        </tr>
+    </table>
+    {#</div>#}
+{##}
+{#<div style="text-align: center; padding-left: 309px; padding-top: 30px; " align="center">#}
+    <table style="text-align: center; border-color: #0000FF; width: 100%; text-align: center" border="0px;">
+        <tr style="height: 50px;">
+            <th colspan="5"><p style="font-size: 25px;">热门政治与法律</p></th>
+        </tr>
+        <tr style="height: 270px;">
+            {% for i in qingchunwenxue[0:5] %}
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ i['id'] }}">
+                <img src="{{ i['book_img'] }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ i['book_name'] }}</p></a>
+            </th>
+            {% endfor %}
+        </tr>
+        <tr style="height: 270px;">
+            {% for i in qingchunwenxue[5:10] %}
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ i['id'] }}">
+                <img src="{{ i['book_img'] }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ i['book_name'] }}</p></a>
+            </th>
+            {% endfor %}
+        </tr>
+    </table>
+    {#</div>#}
+{##}
+{#<div style="text-align: center; padding-left: 309px; padding-top: 30px; " align="center">#}
+    <table style="text-align: center; border-color: #0000FF; width: 100%; text-align: center" border="0px;">
+        <tr style="height: 50px;">
+            <th colspan="5"><p style="font-size: 25px;">热门社会科学总论</p></th>
+        </tr>
+        <tr style="height: 270px;">
+            {% for i in aiqing[0:5] %}
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ i['id'] }}">
+                <img src="{{ i['book_img'] }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ i['book_name'] }}</p></a>
+            </th>
+            {% endfor %}
+        </tr>
+        <tr style="height: 270px;">
+            {% for i in aiqing[5:10] %}
+            <th style="height: 270px; width: 200px;"><a href="/xiangqing/{{ i['id'] }}">
+                <img src="{{ i['book_img'] }}" width="170px;" height="220px;"></img><br>
+                <p style="font-family: Harrington; font-size: 14px;">{{ i['book_name'] }}</p></a>
+            </th>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+
+<div class="bottom" style="text-align: center; height: 100px; background-color: #5e5e5e;padding-top: 5px; border: 0px;">
+    <p style="font-size: 20px;">
+        本站仅作学习使用 内容来源网络 与本人无关 若侵权请联系删除
+    </p>
+    <p style="font-size: 20px;">
+        邮箱：xiaomu041@Gmail.com
+    </p>
+</div>
+
+{% endblock %}

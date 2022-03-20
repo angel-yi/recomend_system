@@ -1,0 +1,33 @@
+<!-- 模板页面，网站图标，菜单栏和侧边栏都在这儿定义 -->
+{% extends "bootstrap/base.html" %}
+<!-- 网站标题 -->
+<!-- 头部 -->
+{% block title %}Angel-文学网{% endblock %}
+{% block head %}
+    <!-- 继承父类 -->
+
+    {{ super() }}
+    <!-- 网站图标，图片在static/images文件夹下 -->
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"
+    type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}"
+    type="image/x-icon">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock %}
+
+
+{% block navbar %}
+
+{% endblock %}
+
+<!-- 继承其他页面内容 -->
+{% block content %}
+    <title>Angel-文学网</title>
+{{ super() }}
+{% endblock %}
+

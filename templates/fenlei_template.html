@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angel影视-电影分类</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>#}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/details.css">
+</head>
+<body style="background-color: white">
+
+<div class="container-fluid">
+    <div class="row" id="top_button">
+      <div class="col-9 col-md-10"><p>◀</p></div>
+      <div class="col-3 col-md-2"><p>❓</p></div>
+    </div>
+    <div class="row">
+        <div class="col-12" id="null"></div>
+    </div>
+
+    <div class="row" style="font-size: 2.5rem; text-align: center; color: #d58512">
+        <div class="col-3">
+            <a href="/fenlei" style="color: #d58512">
+                电影
+            </a>
+        </div>
+        <div class="col-3">电视剧</div>
+        <div class="col-3">综艺</div>
+        <div class="col-3">动漫</div>
+    </div>
+
+    <div class="row">
+        {% for i in data['fenlei'] %}
+            <div class="col-2" style="font-size: 1.7rem; text-align: center">
+                <a href="{{ i['fenlei_href'] }}">
+                    <p>{{ i['fenlei_title'] }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        {% for i in data['year'] %}
+            <div class="col-2" style="font-size: 1.7rem; text-align: center">
+                <a href="{{ i['year_list_href'] }}">
+                    <p>{{ i['year_list_title'] }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        {% for i in data['add'] %}
+            <div class="col-2" style="font-size: 1.7rem; text-align: center">
+                <a href="{{ i['add_list_href'] }}">
+                    <p>{{ i['add_list_title'] }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="col-12" id="null_2">
+            <p>电影列表</p>
+        </div>
+    </div>
+    <div class="row">
+        {% for i in data['video'] %}
+            <div class="col-4" style="text-align: center; margin-top: 30px;">
+                <a href="/details/{{ i['video_list_href'] }}">
+                    <img src="{{ i['video_list_img'] }}" width="280px" height="350px">
+                </a>
+            </div>
+            <div class="col-8" style="font-size: 2.5rem; text-align: left; margin-top: 30px;">
+                <a href="/details/{{ i['video_list_href'] }}">
+                    <p style="color: black">{{ i['video_list_title'] }}</p>
+                    <p style="color: #5B5B5B">上映时间：{{ i['video_list_year'] }}</p>
+                    <p style="color: #5B5B5B">{{ i['video_list_actor'] }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <br>
+
+    <div class="row" style="font-size: 3rem;">
+        <div class="col-6" style="text-align: right">
+            上一页
+        </div>
+        <div class="col-6" style="text-align: left">
+            下一页
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12" style="height: 100px;"></div>
+    </div>
+
+    <div class="row" style="bottom: 0; z-index: 9999; position: fixed ! important; background-color: #f7f7f7;
+                            width: 100%; margin-top: 10px; text-align: center; height: 100px">
+        <div class="col-3">
+            <p style="font-size: 1.5rem;">
+                <a href="/angel_movie">
+                    <img src="/static/images/movie_index.png" width="60px" height="60px">
+                    <br>
+                    首页
+                </a>
+            </p>
+        </div>
+        <div class="col-3">
+            <p style="font-size: 1.5rem">
+                <a href="/fenlei">
+                    <img src="/static/images/movie_fenlei.png" width="60px" height="60px">
+                    <br>
+                    分类
+                </a>
+            </p>
+        </div>
+        <div class="col-3">
+            <p style="font-size: 1.5rem">
+                <a href="/movie_sousuo">
+                    <img src="/static/images/movie_sousuo.png" width="60px" height="60px">
+                    <br>
+                    搜索
+                </a>
+            </p>
+        </div>
+        <div class="col-3">
+            <p style="font-size: 1.5rem">
+                <a href="/movie_wode">
+                    <img src="/static/images/movie_wode.png" width="60px" height="60px">
+                    <br>
+                    我的
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

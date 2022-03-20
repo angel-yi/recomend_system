@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情-{{ data['video_title'] }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>#}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/details.css">
+</head>
+<body style="background-color: white">
+
+<div class="container-fluid">
+    <div class="row" id="top_button">
+      <div class="col-9 col-md-10"><p>◀</p></div>
+      <div class="col-3 col-md-2"><p>❓</p></div>
+    </div>
+    <div class="row">
+        <div class="col-12" id="null"></div>
+    </div>
+
+    <div class="row" id="top_detail">
+        <div class="col-4">
+            <img src="{{ data['video_img'] }}">
+        </div>
+        <div class="col-8">
+            <p id="v_title">{{ data['video_title'] }}</p>
+            <p>时间：{{ data['video_date'] }}</p>
+            <p>地区：{{ data['video_add'] }}</p>
+            <p>评分：{{ data['video_core'] }}</p>
+            <p>分类：{{ data['video_class'] }}</p>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-12" id="null_2">
+            <p>片源</p>
+        </div>
+    </div>
+    <br>
+
+    <div class="row" id="yuan">
+        {% for i in data['yuan'] %}
+            <div class="col-3">
+                <a href="/play/{{ i['yuan_href'] }}" style="color: #d58512">
+                    {{ i['yuan_title'] }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col-12" id="null_2">
+            <p>剧情描述</p>
+        </div>
+    </div>
+    <div class="row" id="descibe">
+        <div class="col-12">{{ data['video_describe'] }}</div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12" style="height: 100px;"></div>
+    </div>
+
+    <div class="row" style="bottom: 0; z-index: 9999; position: fixed ! important; background-color: #f7f7f7;
+                            width: 100%; margin-top: 10px; text-align: center; height: 100px">
+        <div class="col-3">
+            <p style="font-size: 1.5rem;">
+                <a href="/angel_movie">
+                    <img src="/static/images/movie_index.png" width="60px" height="60px">
+                    <br>
+                    首页
+                </a>
+            </p>
+        </div>
+        <div class="col-3">
+            <p style="font-size: 1.5rem">
+                <a href="/fenlei">
+                    <img src="/static/images/movie_fenlei.png" width="60px" height="60px">
+                    <br>
+                    分类
+                </a>
+            </p>
+        </div>
+        <div class="col-3">
+            <p style="font-size: 1.5rem">
+                <a href="/movie_sousuo">
+                    <img src="/static/images/movie_sousuo.png" width="60px" height="60px">
+                    <br>
+                    搜索
+                </a>
+            </p>
+        </div>
+        <div class="col-3">
+            <p style="font-size: 1.5rem">
+                <a href="/movie_wode">
+                    <img src="/static/images/movie_wode.png" width="60px" height="60px">
+                    <br>
+                    我的
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

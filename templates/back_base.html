@@ -1,0 +1,110 @@
+
+{% extends "bootstrap/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <title>Angel-文学网</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="/static/bootstrap.min.css"/>
+        <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?e4b854cd3c899688b4bfee2db7f49d6f";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        <script>
+            (function(){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+        <style>
+            input{
+                border: 1px solid #ccc;
+                padding: 7px 0px;
+                border-radius: 3px;
+                padding-left:5px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+                -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+            }
+            input:focus{
+                border-color: #66afe9;
+                outline: 0;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+            }
+        </style>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <nav class="navbar-collapse collapse" style="text-align: center; height: 40rem; width: 100%; background-color: #bee5f9;padding-top: 0rem;border: 0rem; color: #f8f8f8">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/background/management/system">Angel-文学网-后台管理系统</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5" style="color: #f8f8f8">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/index">前端首页</a></li>
+                    <li class="active"><a href="/class_system">分类管理</a></li>
+                    <li class="active"><a href="/background_author_system">作者管理</a></li>
+                    <li class="active"><a href="/book_system">书籍管理</a></li>
+                    <li class="active"><a href="/member_system">会员管理</a></li>
+                    <li class="active"><a href="/publicity_system">公告管理</a></li>
+                    <li class="active"><a href="/data_system">网站数据</a></li>
+
+                </ul>
+                <form action="/sousuo" method="post" class="navbar-form navbar-left" style="padding-left: 10rem;">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="gjc" placeholder="搜索书籍" style="border-radius:20px">
+                    </div>
+                    <button type="submit" class="btn btn-default" style="border-radius:20px">搜索</button>
+                </form>
+
+                <ul class="nav navbar-nav navbar-right" >
+                    {% if session.get('username') %}
+                        <li>
+                            <a>Hello {{ session.get('username') }}</a>
+                        </li>
+                        <li>
+                            <a href="/tuichu">注销</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="/login">权限不足</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+{% endblock %}
+</body>
+</html>
+
+
+
+

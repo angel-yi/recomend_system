@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}Angel文学{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/bootstrap.min.css"/>
+{% endblock %}
+{% block content %}
+    <title>Angel-文学网</title>
+<body style="background-image: url('/static/images/4a926626b6b0618ea0636b1c782d6283.png')">
+<nav class="navbar-collapse collapse" style="text-align: center; height: 80px; background-color: #bee5f9;padding-top: 5px;border: 0px; color: #f8f8f8">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/index">Angel-小说</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5" style="color: #f8f8f8">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/index">首页</a></li>
+        <li><a href="/index">热门</a></li>
+{#        <li><a href="/index">排行榜</a></li>#}
+        <li><a href="/fenlei/都市小说">分类</a></li>
+        <li><a href="/fenlei/玄幻小说">玄幻小说</a></li>
+
+
+        <li class="dropdown" style="color: #f8f8f8">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多标签 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/fenlei/修真小说">修真小说</a></li>
+            <li><a href="/fenlei/都市小说">都市小说</a></li>
+            <li><a href="/fenlei/网游小说">网游小说</a></li>
+              <li><a href="/fenlei/其他小说">更多分类</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <form action="/sousuo" method="post" class="navbar-form navbar-left" style="padding-left: 250px;">
+        <div class="form-group">
+          <input type="text" class="form-control" name="gjc" placeholder="搜索书籍" style="border-radius:20px">
+        </div>
+        <button type="submit" class="btn btn-default" style="border-radius:20px">搜索</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right" >
+          {% if session.get('username') %}
+          <li>
+              <a>Hello {{ session.get('username') }}</a>
+          </li>
+              <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/userinfo">个人中心</a></li>
+            <li><a href="/xiugaixinxi">修改密码</a></li>
+            <li><a href="/xiugaixinxi">修改昵称</a></li>
+              <li><a href="/tuichu">退出登录</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/myhistory">我的记录</a></li>
+              <li><a href="/mycollection">我的收藏</a></li>
+          </ul>
+        </li>
+          {% else %}
+            <li>
+              <a href="/reg">注册</a>
+          </li>
+              <li>
+              <a href="/login">登录</a>
+          </li>
+          {% endif %}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+{#<div style="text-align: center; color: #f8f8f8; height: 300px;">#}
+{#    <p style="padding-top: 70px;">#}
+{#        欢迎来到个人主页#}
+{#    </p>#}
+{#    <p>#}
+{#        {{ session.get('username') }}#}
+{#    </p>#}
+{#    <img src="/static/images/bg3.png" width="100px;" height="100px;" style="border-radius: 50px;">#}
+{#</div>#}
+
+<div style="text-align: center; color: #f8f8f8;  font-size: 14px;width: 80%; background-color: #CCCCFF; border-radius:20px;height: 80%; margin-top: 20px;" class="container">
+    <hr>
+    <p style="font-size: 18px; color: #f8f8f8">
+        <a href="/userinfo" style="color: #f8f8f8; padding-left: 20px;">|我的主页|</a>
+        <a href="/xiugaixinxi" style="color: #f8f8f8; padding-left: 20px;">|修改信息|</a>
+        <a href="/mycollection"style="color: #f8f8f8; padding-left: 20px;">|我的收藏|</a>
+{#        <a href="/mylike" style="color: #f8f8f8; padding-left: 20px;">|我喜欢的|</a>#}
+        <a href="/myhistory" style="color: #f8f8f8; padding-left: 20px;">|历史记录|</a>
+    </p>
+    <hr>
+    <p style="font-size: 18px;">
+        我的历史
+    </p><hr>
+
+    <div style="text-align: left; background-color: #e2ddff; border-radius:20px; margin-left: 20px;" align="left" class="left">
+    <table border="0px;" style="text-align: center; border-color: #444444; text-align: center; " border="0px;">
+        <thead>
+
+        </thead>
+
+        <tbody>
+            {% for i in history %}
+            <tr style="margin: 20px; padding: 200px; height: 240px;">
+                <th width="190px;" height="180px;">
+                    <a href="/xiangqing/{{ i.id }}">
+                        <img src="{{ i['book_img'] }}" width="190px;"height="230px;">
+                    </a>
+{#                    {{ i['book_img'] }}#}
+                </th>
+                <th width="80%;" style="text-align: left">
+                    <a href="/xiangqing/{{ i.id }}"><p style="font-size: 20px; font-family: 楷体">
+                        {{ i['book_name'] }}<br>
+                    </p></a>
+{#                </th>#}
+{#                <th width="200px;">#}
+                    <p style="font-size: 14px; font-family: 宋体; color: #770101">
+                        {{ i['book_author'] }}<br>
+                    </p>
+{#                </th>#}
+{#                <th width="450px;">#}
+                    <p style="font-size: 14px; font-family: 宋体; color: #1b6d85">
+                        &nbsp;&nbsp;{{ i['book_abstract'].replace('&nbsp;','') }}<br>
+                    </p>
+{#                </th>#}
+{#                <th width="200px;">#}
+                    <p style="font-size: 14px; font-family: 楷体">
+                        <input class="btn-danger" type="text" readonly value="{{ i['book_class'] }}" style="width: 90px; height: 35px; font-family: KaiTi; border-radius:20px; text-align: center;">
+                    </p>
+                </th>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+</div>
+
+
+
+
+
+</body>
+{% endblock %}
